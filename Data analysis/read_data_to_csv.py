@@ -2,11 +2,10 @@ import csv
 import json
 from numpy import nan
 import sys
-
-sys.path.append("C:\\Users\\User\\Desktop\\URECA CODE\\readabilityinscience")
+path_to_repo = "C:\\Users\\User\\Desktop" # EDIT THIS!
+sys.path.append(path_to_repo + "\\readability-and-success")
 import readabilityinscience.functions.readabilityFunctions as rf
 
-# sys.path.append("C:\\Users\\User\\Desktop\\URECA CODE\\pmidcite\\src")
 # from pmidcite.icite.downloader import get_downloader
 
 
@@ -28,18 +27,16 @@ def getReadability(text):
 
 def main(): 
     header = ['journal', 'index', 'pmid', 'pubdate_year', 'years_since_pub', 'citation_count', 'fre', 'ndc', 'ndc_perc_difficult']
-    # C:\\Users\\User\\Desktop\\readabilityinscience\\
     journals = ['ca-cancer_j_clin[journal]', 'chem_rev[journal]', 'lancet[journal]', 'nat_biotechnol[journal]', 'new_engl_j_med[journal]']
-    #journals = ['ca-cancer_j_clin[journal]']
 
-    dataFile = open('PRELIM_DATA.csv', 'w', encoding='UTF8', newline='')
+    dataFile = open('test.csv', 'w', encoding='UTF8', newline='')
     writer = csv.writer(dataFile)
     writer.writerow(header)
 
     # dnldr = get_downloader()
 
     for j in journals:
-        f = open('C:\\Users\\User\\Desktop\\URECA CODE\\readabilityinscience\\data\\abstracts\\%s\\id_article\\abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi\\searchresults' % j)
+        f = open('C:\\Users\\User\\Desktop\\readability-and-success\\readabilityinscience\\data\\abstracts\\%s\\id_article\\abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi\\searchresults' % j)
         data = json.load(f)            
         for index in list(data['index'].keys()):
             print(j, index)
