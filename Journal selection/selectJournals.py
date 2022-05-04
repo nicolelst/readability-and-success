@@ -49,10 +49,10 @@ def selectJournals():
     # data["search"] = data.apply(lambda r: "\"%s\"[Journal]" % r["Title"], axis=1) # has the inverted commas
     
     topRange, topJournals = getJournalsByPercentile(data, "H index", 0.9, 1)
-    topJournals.loc[:, ["journal", "search"]].to_csv("topJournals.csv", header=True, index=True, index_label="journalID") 
+    topJournals.loc[:, ["journal", "search"]].to_csv("Journal selection\\topJournals.csv", header=True, index=True, index_label="journalID") 
 
     medianRange, medianJournals = getJournalsByPercentile(data, "H index", 0.45, 0.55)
-    medianJournals.loc[:, ["journal", "search"]].to_csv("medianJournals.csv", header=True, index=True, index_label="journalID") 
+    medianJournals.loc[:, ["journal", "search"]].to_csv("Journal selection\\medianJournals.csv", header=True, index=True, index_label="journalID") 
 
     print("Scimago journal count:", scimago_df.shape[0]) # 32952, 3363 top 10%, 3844 median 10%
     print("Pubmed journal count:", pubmed_df.shape[0]) # 34899
