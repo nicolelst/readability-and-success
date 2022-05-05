@@ -40,12 +40,13 @@ def selectJournals():
     scimago_df = pd.read_csv("Journal selection\\scimagojr 2020.csv", sep = ";")
     # Rank, Sourceid, Title, Type, Issn, SJR, SJR Best Quartile, H index, Total Docs. (2020), Total Docs. (3years), Total Refs., Total Cites (3years), Citable Docs. (3years), Cites / Doc. (2years), Ref. / Doc., Country, Region, Publisher, Coverage, Categories
     pubmed_df = getPubmedJournalData()
+    pubmed_df.to_csv("Journal selection\\PubmedJournals.csv", header=True, index=False) 
 
     data = pd.merge(scimago_df, pubmed_df, left_on="Title", right_on="JournalTitle", how="inner")
     data = data.loc[:, ["Rank", "Title", "IsoAbbr", "H index", "SJR", "Country", "Region", "Coverage"]]
-    
-    data.rename(columns = {"IsoAbbr": "journal"}, inplace = True)
     data["search"] = data.apply(lambda r: r["Title"] + "[Journal]", axis=1)
+    data.to_csv("Journal selection\\FinalJournals.csv", header=True, index=False) 
+    data.rename(columns = {"IsoAbbr": "journal"}, inplace = True)
     # data["search"] = data.apply(lambda r: "\"%s\"[Journal]" % r["Title"], axis=1) # has the inverted commas
     
     topRange, topJournals = getJournalsByPercentile(data, "H index", 0.9, 1)
