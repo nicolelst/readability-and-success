@@ -166,7 +166,7 @@ def txt2dataframe(datIn,termsIn,dfId='article',filepath='',write=1,include_artic
     else:
         return dataOut
 
-def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_address=None, iftxtexists=None):
+def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_address=None, iftxtexists=None, folderName='data'):
 
     """
 
@@ -195,9 +195,10 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                        - 'use'     - use text file
                        - 'update'  - update text file (not implemented yet)
                        - 'ignore'  - ignores txt file.
+    folderName -      Name of folder to store data in
 
-    Make a file structure of ./data/abstracts/$PUBMED_SEARCHTERM/searchresults.txt - for txt
-    Make a file structure of ./data/abstracts/$ID_term/$PUBMED_SEARCHTERM/$COLUMN1_COLUMN2/searchresults for dataframe
+    Make a file structure of ./$folderName/abstracts/$PUBMED_SEARCHTERM/searchresults.txt - for txt
+    Make a file structure of ./$folderName/abstracts/$ID_term/$PUBMED_SEARCHTERM/$COLUMN1_COLUMN2/searchresults for dataframe
 
     Not the most pythonic code - sorry
 
@@ -259,11 +260,11 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
     #SETUP: FILE STRUCTURE
     #Where to save files and create file structure
     try:
-        os.mkdir(workingDirectory + '/data/')
-        os.mkdir(workingDirectory + '/data/abstracts//')
+        os.mkdir(workingDirectory + '/%s/' % folderName)
+        os.mkdir(workingDirectory + '/%s/abstracts//' % folderName)
     except:
         pass
-    filename_pubMedData = workingDirectory + '/data/abstracts/' + searchString + '/'
+    filename_pubMedData = workingDirectory + '/%s/abstracts/' % folderName + searchString + '/'
     filename_pubMedData=filename_pubMedData.replace(' ','_') #Make pretty filename
     filename_pubMedData=filename_pubMedData.replace('\"','') #Make pretty filename
     try:
@@ -289,7 +290,7 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
         filename_pubMedData = filename_pubMedData + '/searchresults.txt'
         file = open(filename_pubMedData,'w') #Create output file
     else:
-        #Create filestructure ~/data/abstracts/SEARCHTERM/ID_xxx/COLUMNS
+        #Create filestructure ~/FOLDERNAME/abstracts/SEARCHTERM/ID_xxx/COLUMNS
         filename_pubMedData_tmp=[]
         for n in range(0,len(dfId)):
             filename_pubMedData_tmp.append(filename_pubMedData+'/id_' + dfId[n])
@@ -392,15 +393,16 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
     #Merge the batch files and cleanup if pubmed searches > 10000 and pckle
     if i>1 and output=='df':
         for pfn in range(0,len(filename_pubMedData)):
-            print('Combining batch files')
+            # print('Combining batch files')
             p=pd.read_json(filename_pubMedData[pfn] + '_batch' + str(0))
             for n in range(1,i):
                 p2=pd.read_json(filename_pubMedData[pfn] + '_batch' + str(n))
                 p=pd.concat([p,p2])
-            print('Saving concatinated file (format: json)')
+            # print('Saving concatenated file (format: json)')
             p.reset_index(inplace=True)
+            print("Total articles:", p.shape[0])
             p.to_json(filename_pubMedData[pfn])
-            print('Cleaning up batch files')
+            # print('Cleaning up batch files')
             for n in range(0,i):
                 cmd = filename_pubMedData[pfn] + '_batch' + str(n) #This may only work on unix
                 os.remove(cmd)

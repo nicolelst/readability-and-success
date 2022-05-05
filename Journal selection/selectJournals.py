@@ -44,7 +44,8 @@ def selectJournals():
 
     data = pd.merge(scimago_df, pubmed_df, left_on="Title", right_on="JournalTitle", how="inner")
     data = data.loc[:, ["Rank", "Title", "IsoAbbr", "H index", "SJR", "Country", "Region", "Coverage"]]
-    data["search"] = data.apply(lambda r: r["Title"] + "[Journal]", axis=1)
+    data["search"] = data.apply(lambda r: '"%s"[Journal]' % r["Title"], axis=1)
+    print(data["search"])
     data.to_csv("Journal selection\\FinalJournals.csv", header=True, index=False) 
     data.rename(columns = {"IsoAbbr": "journal"}, inplace = True)
     # data["search"] = data.apply(lambda r: "\"%s\"[Journal]" % r["Title"], axis=1) # has the inverted commas

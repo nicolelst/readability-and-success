@@ -1,136 +1,136 @@
 journalID,journal,search
-0,Nature,Nature[Journal]
-1,Science (1979),Science[Journal]
-2,Cell,Cell[Journal]
-3,Proc Natl Acad Sci U S A,Proceedings of the National Academy of Sciences of the United States of America[Journal]
-4,J Am Chem Soc,Journal of the American Chemical Society[Journal]
-5,Circulation,Circulation[Journal]
-6,Neuron,Neuron[Journal]
-7,Blood,Blood[Journal]
-8,J Am Coll Cardiol,Journal of the American College of Cardiology[Journal]
-9,Gastroenterology,Gastroenterology[Journal]
-10,Immunity,Immunity[Journal]
-11,Biomaterials,Biomaterials[Journal]
-12,Neuroimage,NeuroImage[Journal]
-13,Neurology,Neurology[Journal]
-14,J Natl Cancer Inst,Journal of the National Cancer Institute[Journal]
-15,Pediatrics,Pediatrics[Journal]
-16,Oncogene,Oncogene[Journal]
-17,Diabetes,Diabetes[Journal]
-18,Stroke,Stroke[Journal]
-19,Macromolecules,Macromolecules[Journal]
-20,Cancer,Cancer[Journal]
-21,Radiology,Radiology[Journal]
-22,Ecology,Ecology[Journal]
-23,Gut,Gut[Journal]
-24,Chest,Chest[Journal]
-25,Carbon N Y,Carbon[Journal]
-26,J Am Soc Nephrol,Journal of the American Society of Nephrology : JASN[Journal]
-27,J Electrochem Soc,Journal of the Electrochemical Society[Journal]
-28,Polymer (Guildf),Polymer[Journal]
-29,Pain,Pain[Journal]
-30,Endocrinology,Endocrinology[Journal]
-31,Spine (Phila Pa 1976),Spine[Journal]
-32,Biochemistry,Biochemistry[Journal]
-33,Ann N Y Acad Sci,Annals of the New York Academy of Sciences[Journal]
-34,Chemosphere,Chemosphere[Journal]
-35,Genetics,Genetics[Journal]
-36,Ophthalmology,Ophthalmology[Journal]
-37,J Am Acad Child Adolesc Psychiatry,Journal of the American Academy of Child and Adolescent Psychiatry[Journal]
-38,Anesthesiology,Anesthesiology[Journal]
-39,J Am Geriatr Soc,Journal of the American Geriatrics Society[Journal]
-40,Diabetologia,Diabetologia[Journal]
-41,Nanoscale,Nanoscale[Journal]
-42,Tetrahedron,Tetrahedron[Journal]
-43,Thorax,Thorax[Journal]
-44,Biomacromolecules,Biomacromolecules[Journal]
-45,Neuroscience,Neuroscience[Journal]
-46,Geology,Geology[Journal]
-47,J Am Acad Dermatol,Journal of the American Academy of Dermatology[Journal]
-48,Sleep,Sleep[Journal]
-49,Neuropsychologia,Neuropsychologia[Journal]
-50,Carcinogenesis,Carcinogenesis[Journal]
-51,Transplantation,Transplantation[Journal]
-52,Nanotechnology,Nanotechnology[Journal]
-53,Bone,Bone[Journal]
-54,Evolution,Evolution; international journal of organic evolution[Journal]
-55,Neurosurgery,Neurosurgery[Journal]
-56,Bull Am Meteorol Soc,Bulletin of the American Meteorological Society[Journal]
-57,J Am Stat Assoc,Journal of the American Statistical Association[Journal]
-58,Psychopharmacology (Berl),Psychopharmacology[Journal]
-59,Oecologia,Oecologia[Journal]
-60,Leukemia,Leukemia[Journal]
-61,Epilepsia,Epilepsia[Journal]
-62,Cognition,Cognition[Journal]
-63,Desalination,Desalination[Journal]
-64,Vaccine,Vaccine[Journal]
-65,Microbiology (N Y),Microbiology[Journal]
-66,Gene,Gene[Journal]
-67,J Am Coll Surg,Journal of the American College of Surgeons[Journal]
-68,Urology,Urology[Journal]
-69,Phytochemistry,Phytochemistry[Journal]
-70,Virology,Virology[Journal]
-71,Virology (Lond),Virology[Journal]
-72,Psychoneuroendocrinology,Psychoneuroendocrinology[Journal]
-73,Cold Spring Harb Perspect Biol,Cold Spring Harbor perspectives in biology[Journal]
-74,Epidemiology (Fairfax),Epidemiology[Journal]
-75,Rheumatology,Rheumatology[Journal]
-76,Organometallics,Organometallics[Journal]
-77,Atherosclerosis,Atherosclerosis[Journal]
-78,J Acad Nutr Diet,Journal of the Academy of Nutrition and Dietetics[Journal]
-79,Computer (Long Beach Calif),Computer[Journal]
-80,Philos Trans A Math Phys Eng Sci,"Philosophical transactions. Series A, Mathematical, physical, and engineering sciences[Journal]"
-81,Bull World Health Organ,Bulletin of the World Health Organization[Journal]
-82,Tectonophysics,Tectonophysics[Journal]
-83,Neuropharmacology,Neuropharmacology[Journal]
-84,Proteomics,Proteomics[Journal]
-85,Lithos,Lithos[Journal]
-86,Geoderma,Geoderma[Journal]
-87,Drugs,Drugs[Journal]
-88,Surgery,Surgery[Journal]
-89,Talanta,Talanta[Journal]
-90,Toxicology,Toxicology[Journal]
-91,Electrophoresis,Electrophoresis[Journal]
-92,Planta,Planta[Journal]
-93,ChemSusChem,ChemSusChem[Journal]
-94,J Acquir Immune Defic Syndr,Journal of acquired immune deficiency syndromes (1999)[Journal]
-95,Psychophysiology,Psychophysiology[Journal]
-96,Hippocampus,Hippocampus[Journal]
-97,Clin J Am Soc Nephrol,Clinical journal of the American Society of Nephrology : CJASN[Journal]
-98,J Am Med Inform Assoc,Journal of the American Medical Informatics Association : JAMIA[Journal]
-99,J Eur Ceram Soc,Journal of the European Ceramic Society[Journal]
-100,Autophagy,Autophagy[Journal]
-101,Biogeochemistry,Biogeochemistry[Journal]
-102,Sci Adv,Science advances[Journal]
-103,J Assoc Inf Sci Technol,Journal of the Association for Information Science and Technology[Journal]
-104,Appetite,Appetite[Journal]
-105,Endoscopy,Endoscopy[Journal]
-106,Neurocomputing,Neurocomputing[Journal]
-107,Haematologica,Haematologica[Journal]
-108,Omega (Westport),Omega[Journal]
-109,Omega,Omega[Journal]
-110,Genomics,Genomics[Journal]
-111,Synthesis (Mass),Synthesis[Journal]
-112,Synthesis (Stuttg),Synthesis[Journal]
-113,Elife,eLife[Journal]
-114,Nat Rev Rheumatol,Nature reviews. Rheumatology[Journal]
-115,Biochimie,Biochimie[Journal]
-116,Resuscitation,Resuscitation[Journal]
-117,Tectonics,Tectonics[Journal]
-118,Immunology,Immunology[Journal]
-119,Theriogenology,Theriogenology[Journal]
-120,CrystEngComm,CrystEngComm[Journal]
-121,Transfusion,Transfusion[Journal]
-122,Transfusion (Paris),Transfusion[Journal]
-123,Biotechniques,BioTechniques[Journal]
-124,Phytopathology,Phytopathology[Journal]
-125,Biometrics,Biometrics[Journal]
-126,Neuropsychology,Neuropsychology[Journal]
-127,Demography,Demography[Journal]
-128,Catena (Amst),Catena[Journal]
-129,Ecography,Ecography[Journal]
-130,Electroanalysis,Electroanalysis[Journal]
-131,Glycobiology,Glycobiology[Journal]
-132,Ambio,Ambio[Journal]
-133,J Am Soc Mass Spectrom,Journal of the American Society for Mass Spectrometry[Journal]
-134,Oncotarget,Oncotarget[Journal]
+0,Nature,"""Nature""[Journal]"
+1,Science (1979),"""Science""[Journal]"
+2,Cell,"""Cell""[Journal]"
+3,Proc Natl Acad Sci U S A,"""Proceedings of the National Academy of Sciences of the United States of America""[Journal]"
+4,J Am Chem Soc,"""Journal of the American Chemical Society""[Journal]"
+5,Circulation,"""Circulation""[Journal]"
+6,Neuron,"""Neuron""[Journal]"
+7,Blood,"""Blood""[Journal]"
+8,J Am Coll Cardiol,"""Journal of the American College of Cardiology""[Journal]"
+9,Gastroenterology,"""Gastroenterology""[Journal]"
+10,Immunity,"""Immunity""[Journal]"
+11,Biomaterials,"""Biomaterials""[Journal]"
+12,Neuroimage,"""NeuroImage""[Journal]"
+13,Neurology,"""Neurology""[Journal]"
+14,J Natl Cancer Inst,"""Journal of the National Cancer Institute""[Journal]"
+15,Pediatrics,"""Pediatrics""[Journal]"
+16,Oncogene,"""Oncogene""[Journal]"
+17,Diabetes,"""Diabetes""[Journal]"
+18,Stroke,"""Stroke""[Journal]"
+19,Macromolecules,"""Macromolecules""[Journal]"
+20,Cancer,"""Cancer""[Journal]"
+21,Radiology,"""Radiology""[Journal]"
+22,Ecology,"""Ecology""[Journal]"
+23,Gut,"""Gut""[Journal]"
+24,Chest,"""Chest""[Journal]"
+25,Carbon N Y,"""Carbon""[Journal]"
+26,J Am Soc Nephrol,"""Journal of the American Society of Nephrology : JASN""[Journal]"
+27,J Electrochem Soc,"""Journal of the Electrochemical Society""[Journal]"
+28,Polymer (Guildf),"""Polymer""[Journal]"
+29,Pain,"""Pain""[Journal]"
+30,Endocrinology,"""Endocrinology""[Journal]"
+31,Spine (Phila Pa 1976),"""Spine""[Journal]"
+32,Biochemistry,"""Biochemistry""[Journal]"
+33,Ann N Y Acad Sci,"""Annals of the New York Academy of Sciences""[Journal]"
+34,Chemosphere,"""Chemosphere""[Journal]"
+35,Genetics,"""Genetics""[Journal]"
+36,Ophthalmology,"""Ophthalmology""[Journal]"
+37,J Am Acad Child Adolesc Psychiatry,"""Journal of the American Academy of Child and Adolescent Psychiatry""[Journal]"
+38,Anesthesiology,"""Anesthesiology""[Journal]"
+39,J Am Geriatr Soc,"""Journal of the American Geriatrics Society""[Journal]"
+40,Diabetologia,"""Diabetologia""[Journal]"
+41,Nanoscale,"""Nanoscale""[Journal]"
+42,Tetrahedron,"""Tetrahedron""[Journal]"
+43,Thorax,"""Thorax""[Journal]"
+44,Biomacromolecules,"""Biomacromolecules""[Journal]"
+45,Neuroscience,"""Neuroscience""[Journal]"
+46,Geology,"""Geology""[Journal]"
+47,J Am Acad Dermatol,"""Journal of the American Academy of Dermatology""[Journal]"
+48,Sleep,"""Sleep""[Journal]"
+49,Neuropsychologia,"""Neuropsychologia""[Journal]"
+50,Carcinogenesis,"""Carcinogenesis""[Journal]"
+51,Transplantation,"""Transplantation""[Journal]"
+52,Nanotechnology,"""Nanotechnology""[Journal]"
+53,Bone,"""Bone""[Journal]"
+54,Evolution,"""Evolution; international journal of organic evolution""[Journal]"
+55,Neurosurgery,"""Neurosurgery""[Journal]"
+56,Bull Am Meteorol Soc,"""Bulletin of the American Meteorological Society""[Journal]"
+57,J Am Stat Assoc,"""Journal of the American Statistical Association""[Journal]"
+58,Psychopharmacology (Berl),"""Psychopharmacology""[Journal]"
+59,Oecologia,"""Oecologia""[Journal]"
+60,Leukemia,"""Leukemia""[Journal]"
+61,Epilepsia,"""Epilepsia""[Journal]"
+62,Cognition,"""Cognition""[Journal]"
+63,Desalination,"""Desalination""[Journal]"
+64,Vaccine,"""Vaccine""[Journal]"
+65,Microbiology (N Y),"""Microbiology""[Journal]"
+66,Gene,"""Gene""[Journal]"
+67,J Am Coll Surg,"""Journal of the American College of Surgeons""[Journal]"
+68,Urology,"""Urology""[Journal]"
+69,Phytochemistry,"""Phytochemistry""[Journal]"
+70,Virology,"""Virology""[Journal]"
+71,Virology (Lond),"""Virology""[Journal]"
+72,Psychoneuroendocrinology,"""Psychoneuroendocrinology""[Journal]"
+73,Cold Spring Harb Perspect Biol,"""Cold Spring Harbor perspectives in biology""[Journal]"
+74,Epidemiology (Fairfax),"""Epidemiology""[Journal]"
+75,Rheumatology,"""Rheumatology""[Journal]"
+76,Organometallics,"""Organometallics""[Journal]"
+77,Atherosclerosis,"""Atherosclerosis""[Journal]"
+78,J Acad Nutr Diet,"""Journal of the Academy of Nutrition and Dietetics""[Journal]"
+79,Computer (Long Beach Calif),"""Computer""[Journal]"
+80,Philos Trans A Math Phys Eng Sci,"""Philosophical transactions. Series A, Mathematical, physical, and engineering sciences""[Journal]"
+81,Bull World Health Organ,"""Bulletin of the World Health Organization""[Journal]"
+82,Tectonophysics,"""Tectonophysics""[Journal]"
+83,Neuropharmacology,"""Neuropharmacology""[Journal]"
+84,Proteomics,"""Proteomics""[Journal]"
+85,Lithos,"""Lithos""[Journal]"
+86,Geoderma,"""Geoderma""[Journal]"
+87,Drugs,"""Drugs""[Journal]"
+88,Surgery,"""Surgery""[Journal]"
+89,Talanta,"""Talanta""[Journal]"
+90,Toxicology,"""Toxicology""[Journal]"
+91,Electrophoresis,"""Electrophoresis""[Journal]"
+92,Planta,"""Planta""[Journal]"
+93,ChemSusChem,"""ChemSusChem""[Journal]"
+94,J Acquir Immune Defic Syndr,"""Journal of acquired immune deficiency syndromes (1999)""[Journal]"
+95,Psychophysiology,"""Psychophysiology""[Journal]"
+96,Hippocampus,"""Hippocampus""[Journal]"
+97,Clin J Am Soc Nephrol,"""Clinical journal of the American Society of Nephrology : CJASN""[Journal]"
+98,J Am Med Inform Assoc,"""Journal of the American Medical Informatics Association : JAMIA""[Journal]"
+99,J Eur Ceram Soc,"""Journal of the European Ceramic Society""[Journal]"
+100,Autophagy,"""Autophagy""[Journal]"
+101,Biogeochemistry,"""Biogeochemistry""[Journal]"
+102,Sci Adv,"""Science advances""[Journal]"
+103,J Assoc Inf Sci Technol,"""Journal of the Association for Information Science and Technology""[Journal]"
+104,Appetite,"""Appetite""[Journal]"
+105,Endoscopy,"""Endoscopy""[Journal]"
+106,Neurocomputing,"""Neurocomputing""[Journal]"
+107,Haematologica,"""Haematologica""[Journal]"
+108,Omega (Westport),"""Omega""[Journal]"
+109,Omega,"""Omega""[Journal]"
+110,Genomics,"""Genomics""[Journal]"
+111,Synthesis (Mass),"""Synthesis""[Journal]"
+112,Synthesis (Stuttg),"""Synthesis""[Journal]"
+113,Elife,"""eLife""[Journal]"
+114,Nat Rev Rheumatol,"""Nature reviews. Rheumatology""[Journal]"
+115,Biochimie,"""Biochimie""[Journal]"
+116,Resuscitation,"""Resuscitation""[Journal]"
+117,Tectonics,"""Tectonics""[Journal]"
+118,Immunology,"""Immunology""[Journal]"
+119,Theriogenology,"""Theriogenology""[Journal]"
+120,CrystEngComm,"""CrystEngComm""[Journal]"
+121,Transfusion,"""Transfusion""[Journal]"
+122,Transfusion (Paris),"""Transfusion""[Journal]"
+123,Biotechniques,"""BioTechniques""[Journal]"
+124,Phytopathology,"""Phytopathology""[Journal]"
+125,Biometrics,"""Biometrics""[Journal]"
+126,Neuropsychology,"""Neuropsychology""[Journal]"
+127,Demography,"""Demography""[Journal]"
+128,Catena (Amst),"""Catena""[Journal]"
+129,Ecography,"""Ecography""[Journal]"
+130,Electroanalysis,"""Electroanalysis""[Journal]"
+131,Glycobiology,"""Glycobiology""[Journal]"
+132,Ambio,"""Ambio""[Journal]"
+133,J Am Soc Mass Spectrom,"""Journal of the American Society for Mass Spectrometry""[Journal]"
+134,Oncotarget,"""Oncotarget""[Journal]"
