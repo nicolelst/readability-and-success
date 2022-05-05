@@ -348,8 +348,8 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                         print('Pubmed Download Error (articles missing, ' + str(len(idData)) + ' vs ' + str(len(pubmedid)) + '): rerunning. Failed ' + str(erind2) + ' times.')
             if i==0 and len(pubmedid)<maxPubmedSearchReturn:
                 print('Downloaded ' + str(len(pubmedid)) + ' articles')
-            else:
-                print('Downloaded batch ' + str(i) + ' containing ' + str(len(pubmedid)) + ' articles')
+            # else:
+            #     print('Downloaded batch ' + str(i) + ' containing ' + str(len(pubmedid)) + ' articles')
 
             if output=='txt':  #save everything in to text
             #Save XML data as text file for use another day
@@ -368,7 +368,7 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                     else:
                         #dataOut.to_json(filename_pubMedData[n] + '_batch' + str(i))
                         dataOut.to_json(filename_pubMedData[n] + '_batch' + str(i))
-                        print('Saved file  batch ' + str(i) + ' as pandas dataframe with id:' + dfId[n] + ' (format: json)')
+                        # print('Saved file  batch ' + str(i) + ' as pandas dataframe with id:' + dfId[n] + ' (format: json)')
             if len(pubmedid)<maxPubmedSearchReturn: # Exit forloop
                 if output=='txt': #cleanup txt file, if printing to txtfile
                     print('Saved as txt file')
