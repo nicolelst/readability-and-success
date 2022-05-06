@@ -263,10 +263,9 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
         os.mkdir(workingDirectory + '/%s/' % folderName)
         os.mkdir(workingDirectory + '/%s/abstracts//' % folderName)
     except:
-        print("NOPE 1")
         pass
     filename_pubMedData = workingDirectory + '/%s/abstracts/' % folderName + searchString + '/'
-    filename_pubMedData=filename_pubMedData.replace(":", "") #Handle : in journal name
+    # filename_pubMedData=filename_pubMedData.replace(":", "") #Handle : in journal name
     filename_pubMedData=filename_pubMedData.replace(' ','_') #Make pretty filename
     filename_pubMedData=filename_pubMedData.replace('\"','') #Make pretty filename
     try:
@@ -400,6 +399,7 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                 p2=pd.read_json(filename_pubMedData[pfn] + '_batch' + str(n))
                 p=pd.concat([p,p2])
             # print('Saving concatenated file (format: json)')
+            p.reset_index(inplace=True)
             print("Total articles:", p.shape[0])
             p.to_json(filename_pubMedData[pfn])
             # print('Cleaning up batch files')
