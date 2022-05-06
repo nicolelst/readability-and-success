@@ -63,9 +63,11 @@ Download the data
 """
 
 #%%
-for n in list(range(18, len(topJournalInfo))): #topJournalNums: 
+for n in list(range(51, len(topJournalInfo))): #topJournalNums: 
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
+    if n in [26, 97, 98]:
+        continue
     searchString = topJournalInfo.search[n]
     print(' ---[TOP] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
 
