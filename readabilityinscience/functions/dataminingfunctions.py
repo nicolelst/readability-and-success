@@ -265,7 +265,9 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
     except:
         pass
     filename_pubMedData = workingDirectory + '/%s/abstracts/' % folderName + searchString + '/'
-    # filename_pubMedData=filename_pubMedData.replace(":", "") #Handle : in journal name
+    # filename_pubMedData=filename_pubMedData.replace(": ", "") #Handle : in journal name
+    # filename_pubMedData=filename_pubMedData.replace(".", "") #Handle . in journal name
+    # filename_pubMedData=filename_pubMedData.replace(",", "") #Handle , in journal name
     filename_pubMedData=filename_pubMedData.replace(' ','_') #Make pretty filename
     filename_pubMedData=filename_pubMedData.replace('\"','') #Make pretty filename
     try:

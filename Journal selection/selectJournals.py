@@ -35,6 +35,12 @@ def getPubmedJournalData():
     # df["search"] = df["IsoAbbr"] + "[journal]" # doesnt work, Science (1979) returns 10 results instead of 181,016 
     return df
 
+def getSearch(title): 
+    search = '"%s"[Journal]' % title
+    search=search.replace(": ", "")
+    search=search.replace(".", "") 
+    search=search.replace(",", "") 
+    return search
 
 def selectJournals(): 
     scimago_df = pd.read_csv("Journal selection\\scimagojr 2020.csv", sep = ";")
@@ -44,8 +50,7 @@ def selectJournals():
 
     data = pd.merge(scimago_df, pubmed_df, left_on="Title", right_on="JournalTitle", how="inner")
     data = data.loc[:, ["Rank", "Title", "IsoAbbr", "H index", "SJR", "Country", "Region", "Coverage"]]
-    data["search"] = data.apply(lambda r: '"%s"[Journal]' % r["Title"], axis=1)
-    print(data["search"])
+    data["search"] = data.apply(lambda r: getSearch(r["Title"]), axis=1)
     data.to_csv("Journal selection\\FinalJournals.csv", header=True, index=False) 
     data.rename(columns = {"IsoAbbr": "journal"}, inplace = True)
     # data["search"] = data.apply(lambda r: "\"%s\"[Journal]" % r["Title"], axis=1) # has the inverted commas
