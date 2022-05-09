@@ -65,8 +65,8 @@ Download the data
 """
 
 #%%
+folderName = 'topJournalData'
 for n in topJournalNums: 
-    folderName = 'topJournalData'
     searchString = topJournalInfo.search[n]
     print(' ---[TOP] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
 
@@ -90,8 +90,8 @@ for n in topJournalNums:
     print('Downloaded ' + str(numArticles) + ' articles')
 
 #%%
+folderName = 'medianJournalData'
 for n in medianJournalNums:
-    folderName = 'medianJournalData'
     searchString = medianJournalInfo.search[n]
     print(' ---[MEDIAN] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
 
@@ -123,21 +123,28 @@ Sometimes the pubdate, year tags were missing in articles. The next cell finds t
 """
 
 #%%
+folderName = 'topJournalData'
 for n in topJournalNums:
-    searchString = topJournalInfo.search[n].lower()
-    #make path to data (always this, if dataframe)
-    mDir = os.getcwd() + '/data/abstracts/' + searchString + '/' + 'id_' + dfId + '/' + dataOfInterest + '/'
-    mDir = mDir.replace(' ','_')
-    mDir = mDir.replace(',','_')
-    mDir = mDir.replace('\"','')
-    dat=pd.read_json(mDir + 'searchresults')
+    for searchString in [topJournalInfo.search[n], \
+                        '"%s"[Journal]' % medianJournalInfo.journal[n]]:
+        searchString = searchString.lower()
+        mDir = os.getcwd() + '/%s/abstracts/' % folderName+ searchString + '/' + 'id_' + dfId + '/' + dataOfInterest + '/'
+        mDir = mDir.replace(' ','_')
+        mDir = mDir.replace(',','_')
+        mDir = mDir.replace('\"','')
+        try: 
+            dat=pd.read_json(mDir + 'searchresults')
+        except: 
+            print("No results for %s. Retrying..." % searchString)
+        else:
+            break
 
     dat.sort_index(inplace=True)
     idMissing = [i for i,x in enumerate(dat.pubdate_year) if x == '']
     if len(idMissing)>0:
         #Make a list of strings
         pmidMissing=list(map(str,list(dat.pmid[idMissing])))
-        print(' ---[TOP] Finding missing years (' + str(len(pmidMissing)) + ' found): ' + searchString + '. term: ' + str(n) + ' ---')
+        print(' ---[TOP] Finding missing years (' + str(len(pmidMissing)) + ' found): ' + searchString + '(%d)' % n + ' ---')
         missingYears = dmf.get_medlineyear(list(pmidMissing))
         dat['pubdate_year'].loc[idMissing]=missingYears
         dat.to_json(mDir + 'searchresults')
