@@ -63,26 +63,48 @@ Download the data
 """
 
 #%%
-for n in list(range(80, len(topJournalInfo))): #topJournalNums: 
+for n in topJournalNums: 
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
-    if n in [26, 80, 97, 98, 114]: # : . in name
-        continue
+    # if n in [26, 80, 97, 98, 114]: # : . in name
+    #     continue
     searchString = topJournalInfo.search[n]
     print(' ---[TOP] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
-
     #Run get data
-    dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'topJournalData')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'topJournalData')
+    except: 
+        numArticles = -1
+
+    if numArticles == 0: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % topJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'topJournalData')
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
 
 #%%
 for n in medianJournalNums:
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
+    # if n in [19, 43, 50, 55, 62, 66, 79, 102, 111, 117, 128, 129, 135, 141]: # : . in name
+    #     continue
     searchString = medianJournalInfo.search[n]
+    # broken 55, 62, 128
     print(' ---[MEDIAN] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
 
     #Run get data
-    dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'medianJournalData')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'medianJournalData')
+    except: 
+        numArticles = -1
+
+    if numArticles in [-1, 0]: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % medianJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', 'medianJournalData')
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
 
 
 #%%
