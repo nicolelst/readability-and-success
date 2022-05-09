@@ -265,9 +265,6 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
     except:
         pass
     filename_pubMedData = workingDirectory + '/%s/abstracts/' % folderName + searchString + '/'
-    # filename_pubMedData=filename_pubMedData.replace(": ", "") #Handle : in journal name
-    # filename_pubMedData=filename_pubMedData.replace(".", "") #Handle . in journal name
-    # filename_pubMedData=filename_pubMedData.replace(",", "") #Handle , in journal name
     filename_pubMedData=filename_pubMedData.replace(' ','_') #Make pretty filename
     filename_pubMedData=filename_pubMedData.replace('\"','') #Make pretty filename
     try:
@@ -312,6 +309,7 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
 
     #QUERY PUBMED
     i=0 # Loop number
+    numArticles = -1 # number of articles retrieved from search
     #Only query if the txt file is not already on computer
     if txt_fileuse == 0:
         #Set email addrress
@@ -350,8 +348,9 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                         pubMedXMLData=[]
                         idData=[]
                         print('Pubmed Download Error (articles missing, ' + str(len(idData)) + ' vs ' + str(len(pubmedid)) + '): rerunning. Failed ' + str(erind2) + ' times.')
-            # if i==0 and len(pubmedid)<maxPubmedSearchReturn:
-            #     print('Downloaded ' + str(len(pubmedid)) + ' articles')
+            if i==0 and len(pubmedid)<maxPubmedSearchReturn:
+                numArticles = len(pubmedid)
+                # print('Downloaded %d articles' % numArticles)
             # else:
             #     print('Downloaded batch ' + str(i) + ' containing ' + str(len(pubmedid)) + ' articles')
 
@@ -393,7 +392,6 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
             print('Saved as pandas dataframe with id:' + dfId[n] + ' (format: json)')
 
     #Merge the batch files and cleanup if pubmed searches > 10000 and pckle
-    numArticles = -1
     if i>1 and output=='df':
         for pfn in range(0,len(filename_pubMedData)):
             # print('Combining batch files')
@@ -404,12 +402,20 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
             # print('Saving concatenated file (format: json)')
             p.reset_index(inplace=True)
             numArticles = p.shape[0]
-            # print("Total articles:", numArticles)
             p.to_json(filename_pubMedData[pfn])
             # print('Cleaning up batch files')
             for n in range(0,i):
                 cmd = filename_pubMedData[pfn] + '_batch' + str(n) #This may only work on unix
                 os.remove(cmd)
+
+    if numArticles in [-1, 0]:
+        import shutil
+        path = workingDirectory + '/%s/abstracts/' % folderName + searchString 
+        path =path.replace(' ','_').replace('\"','')    
+        try:
+            shutil.rmtree(path)
+        except OSError as e:
+            print("Error: %s : %s" % (path, e.strerror))
 
     return numArticles
 
