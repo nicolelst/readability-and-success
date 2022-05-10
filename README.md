@@ -11,3 +11,4 @@ The real value of clear language: Investigating readability and success in acade
     - Edit `email` in line 17
     - i edited `dataminingfunctions.py` line 351-352, 371, 396, 401, 404
     - i edited `C:\Users\User\AppData\Local\Programs\Python\Python38-32\Lib\site-packages\bs4\builder __init__.py` line 545-550
+    - DTD for pubmed xml data found [here](https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd)

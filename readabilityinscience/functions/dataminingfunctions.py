@@ -435,6 +435,10 @@ def get_medlineyear(pmid):
     year = []
     for articleItem in articleData:
         yearData=articleItem.find_all('medlinedate')
-        #print(yearData)
-        year.append(int(str(yearData[0])[13:17]))
+        try: 
+            # eg "<medlinedate>2021 Spring-Summer</medlinedate>"
+            year.append(int(str(yearData[0])[13:17]))
+        except: 
+            # eg "<medlinedate>Winter 2021</medlinedate>"
+            year.append(int(str(yearData[0])[-18:-14]))
     return year

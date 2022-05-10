@@ -126,7 +126,7 @@ Sometimes the pubdate, year tags were missing in articles. The next cell finds t
 folderName = 'topJournalData'
 for n in topJournalNums:
     for searchString in [topJournalInfo.search[n], \
-                        '"%s"[Journal]' % medianJournalInfo.journal[n]]:
+                        '"%s"[Journal]' % topJournalInfo.journal[n]]:
         searchString = searchString.lower()
         mDir = os.getcwd() + '/%s/abstracts/' % folderName+ searchString + '/' + 'id_' + dfId + '/' + dataOfInterest + '/'
         mDir = mDir.replace(' ','_')
@@ -135,7 +135,7 @@ for n in topJournalNums:
         try: 
             dat=pd.read_json(mDir + 'searchresults')
         except: 
-            print("No results for %s. Retrying..." % searchString)
+            print("No results for (n) %s. Retrying..." % mDir)
         else:
             break
 
@@ -148,25 +148,36 @@ for n in topJournalNums:
         missingYears = dmf.get_medlineyear(list(pmidMissing))
         dat['pubdate_year'].loc[idMissing]=missingYears
         dat.to_json(mDir + 'searchresults')
+print("Search complete")
 
 #%%
-for n in medianJournalNums:
-    searchString = medianJournalInfo.search[n].lower()
-    #make path to data (always this, if dataframe)
-    mDir = os.getcwd() + '/data/abstracts/' + searchString + '/' + 'id_' + dfId + '/' + dataOfInterest + '/'
-    mDir = mDir.replace(' ','_')
-    mDir = mDir.replace(',','_')
-    mDir = mDir.replace('\"','')
-    dat=pd.read_json(mDir + 'searchresults')
+folderName = 'medianJournalData'
+for n in [151]: #medianJournalNums:
+    for searchString in [medianJournalInfo.search[n], \
+                        '"%s"[Journal]' % medianJournalInfo.journal[n]]:
+        searchString = searchString.lower()
+        mDir = os.getcwd() + '/%s/abstracts/' % folderName+ searchString + '/' + 'id_' + dfId + '/' + dataOfInterest + '/'
+        mDir = mDir.replace(' ','_')
+        mDir = mDir.replace(',','_')
+        mDir = mDir.replace('\"','')
+        try: 
+            dat=pd.read_json(mDir + 'searchresults')
+        except: 
+            print("No results for (n) %s \nRetrying..." % mDir)
+        else:
+            break
+
     dat.sort_index(inplace=True)
     idMissing = [i for i,x in enumerate(dat.pubdate_year) if x == '']
     if len(idMissing)>0:
         #Make a list of strings
         pmidMissing=list(map(str,list(dat.pmid[idMissing])))
-        print(' ---[MEDIAN] Finding missing years (' + str(len(pmidMissing)) + ' found): ' + searchString + '. term: ' + str(n) + ' ---')
+        print(' ---[MEDIAN] Finding missing years (' + str(len(pmidMissing)) + ' found): ' + searchString + '(%d)' % n + ' ---')
         missingYears = dmf.get_medlineyear(list(pmidMissing))
+        # returns 10000 instead of 27884
         dat['pubdate_year'].loc[idMissing]=missingYears
         dat.to_json(mDir + 'searchresults')
+print("Search complete")
 
 #%%
 #md
@@ -184,13 +195,34 @@ dataOfInterest = 'forename,lastname,affiliation'
 dfId = 'author'
 
 #%%
+folderName = 'topJournalData'
 for n in topJournalNums:
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
     searchString = topJournalInfo.search[n]
     print(' ---[TOP] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
     #Run get data
-    dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    # dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    except: 
+        print("Error. Retrying...")
+        path = os.getcwd() + '/%s/abstracts/' % folderName + searchString 
+        path = path.replace(' ','_').replace('\"','')    
+        try:
+            shutil.rmtree(path)
+        except OSError as e:
+            print("Error removing %s : %s" % (path, e.strerror))
+        numArticles = -1
+
+    if numArticles == 0: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % topJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
+
+
 
 #%%
 for n in medianJournalNums:
