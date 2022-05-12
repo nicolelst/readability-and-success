@@ -164,7 +164,7 @@ for n in topJournalNums:
 #%%
 folderName = 'medianJournalData'
 # 9-15, 16
-for n in list(range(16, len(medianJournalInfo))): #medianJournalNums:
+for n in medianJournalNums:
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
     searchString = medianJournalInfo.search[n]
@@ -201,6 +201,8 @@ Sometimes the pubdate, year tags were missing in articles. The next cell finds t
 #%%
 folderName = 'topJournalData'
 for n in topJournalNums:
+    if n in [71, 108, 111, 122]:
+        continue
     for searchString in [topJournalInfo.search[n], \
                         '"%s"[Journal]' % topJournalInfo.journal[n]]:
         searchString = searchString.lower()
@@ -228,7 +230,9 @@ print("Search complete")
 
 #%%
 folderName = 'medianJournalData'
-for n in medianJournalNums:
+for n in [151]: # medianJournalNums:
+    if n in list(range(9, 15+1)) + [139]:
+        continue
     for searchString in [medianJournalInfo.search[n], \
                         '"%s"[Journal]' % medianJournalInfo.journal[n]]:
         searchString = searchString.lower()
