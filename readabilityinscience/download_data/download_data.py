@@ -181,7 +181,83 @@ print("Search complete")
 
 #%%
 #md
+# TODO: remove this section and add language to earlier section
+"""
+Download the language of each article.
+"""
 
+#%%
+#with language
+dataOfInterest = 'language,abstracttext,pubdate_year,pmid,articletitle,journal_title,keyword,doi'
+# dataOfInterest = 'pmid,language'
+#If dataframe, what is the index column (usally article or author)
+dfId = 'article'
+
+#%%
+folderName = 'topJournalData'
+# 108 & 109
+# 111, 112
+# 121, 122
+# 70, 71
+for n in topJournalNums:
+    #Parameters needed (if left blank, get_pubmeddata asks for response)
+    #What to search pubmed with
+    searchString = topJournalInfo.search[n]
+    print(' ---[TOP] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
+    #Run get data
+    # dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    except: 
+        print("Error. Retrying...")
+        path = os.getcwd() + '/%s/abstracts/' % folderName + searchString 
+        path = path.replace(' ','_').replace('\"','')    
+        try:
+            shutil.rmtree(path)
+        except OSError as e:
+            print("Error removing %s : %s" % (path, e.strerror))
+        numArticles = -1
+
+    if numArticles in [0, -1]: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % topJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
+
+
+
+#%%
+folderName = 'medianJournalData'
+for n in medianJournalNums:
+    #Parameters needed (if left blank, get_pubmeddata asks for response)
+    #What to search pubmed with
+    searchString = medianJournalInfo.search[n]
+    print(' ---[MEDIAN] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
+    #Run get data
+    # dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    except:
+        print("Error. Retrying...")
+        path = os.getcwd() + '/%s/abstracts/' % folderName + searchString # TODO add data of interest
+        path = path.replace(' ','_').replace('\"','')    
+        try:
+            shutil.rmtree(path)
+        except OSError as e:
+            print("Error removing %s : %s" % (path, e.strerror))
+        numArticles = -1
+
+    if numArticles in [-1, 0]: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % medianJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
+
+
+
+# %%
 """
 For the "nr authors" the author info also has to be download.
 """
@@ -225,12 +301,33 @@ for n in topJournalNums:
 
 
 #%%
+folderName = 'medianJournalData'
 for n in medianJournalNums:
     #Parameters needed (if left blank, get_pubmeddata asks for response)
     #What to search pubmed with
     searchString = medianJournalInfo.search[n]
     print(' ---[MEDIAN] Running search: ' + searchString + ' (' + str(n) + ')' + ' ---')
     #Run get data
-    dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    # dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore')
+    try: 
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    except:
+        print("Error. Retrying...")
+        path = os.getcwd() + '/%s/abstracts/' % folderName + searchString 
+        path = path.replace(' ','_').replace('\"','')    
+        try:
+            shutil.rmtree(path)
+        except OSError as e:
+            print("Error removing %s : %s" % (path, e.strerror))
+        numArticles = -1
+
+    if numArticles in [-1, 0]: # if search from title fails, try IsoAbbr
+        searchString = '"%s"[Journal]' % medianJournalInfo.journal[n]
+        print(">> Rerunning search:", searchString)
+        numArticles = dmf.get_pubmeddata(searchString.lower(), dataOfInterest, dfId, email, 'ignore', folderName)
+    
+    print('Downloaded ' + str(numArticles) + ' articles')
+
+
 
 # %%
