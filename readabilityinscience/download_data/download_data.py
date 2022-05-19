@@ -201,7 +201,7 @@ Sometimes the pubdate, year tags were missing in articles. The next cell finds t
 #%%
 folderName = 'topJournalData'
 for n in topJournalNums:
-    if n in [71, 108, 111, 122]:
+    if n in [71, 108, 111, 122]: # repeat
         continue
     for searchString in [topJournalInfo.search[n], \
                         '"%s"[Journal]' % topJournalInfo.journal[n]]:
@@ -230,8 +230,9 @@ print("Search complete")
 
 #%%
 folderName = 'medianJournalData'
+# TODO: 151 is broken
 for n in [151]: # medianJournalNums:
-    if n in list(range(9, 15+1)) + [139]:
+    if n in list(range(9, 15+1)) + [139]: # repeat
         continue
     for searchString in [medianJournalInfo.search[n], \
                         '"%s"[Journal]' % medianJournalInfo.journal[n]]:
@@ -254,7 +255,7 @@ for n in [151]: # medianJournalNums:
         pmidMissing=list(map(str,list(dat.pmid[idMissing])))
         print(' ---[MEDIAN] Finding missing years (' + str(len(pmidMissing)) + ' found): ' + searchString + '(%d)' % n + ' ---')
         missingYears = dmf.get_medlineyear(list(pmidMissing))
-        # returns 10000 instead of 27884
+        # median 151: returns 10000 instead of 27884
         dat['pubdate_year'].loc[idMissing]=missingYears
         dat.to_json(mDir + 'searchresults')
 print("Search complete")
