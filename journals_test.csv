@@ -1,3 +1,4 @@
-journal_title,downloaded_articles,missing_abstracts,non_english_articles,usable_articles
-Bulletin_of_the_American_Meteorological_Society[J,29,11,0,18
-Journal_of_the_European_Ceramic_Society[J,6,2,0,4
+journal,full_journal_title,downloaded_articles,missing_abstracts,non_english_articles,usable_articles
+bulletin_of_the_american_meteorological_society,Bulletin of the American Meteorological Society,29,11,0,18
+philos_trans_a_math_phys_eng_sci,"Philosophical transactions. Series A, Mathematical, physical, and engineering sciences",5939,1301,0,4638
+journal_of_the_european_ceramic_society,Journal of the European Ceramic Society,6,2,0,4
