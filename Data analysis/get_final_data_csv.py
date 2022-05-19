@@ -1,4 +1,5 @@
 import csv
+from datetime import date
 import json
 from numpy import nan
 import pandas as pd
@@ -29,8 +30,9 @@ def get_final_data_csv(dataFileName, journalFileName, journalInfoFileName, folde
     - data file: data about each article (journal, article id, pmid, readability measures, citation counts)
         - journal, article_ID, pmid: information for identifying article
         - pubdate_year: year of publishing
-        - citation_count
-        - TODO readability measures
+        - citation_count: number of citations
+        - citation_count_per_year: average number of citations per year since publishing
+        - fre, ndc, ndc_perc_difficult: readability measures
     - journal file: data about each journal (number of articles downloaded / used for analysis)
         - journal: string used to identify journal, name of folder for this journal
         - full_journal_title: full title of journal
@@ -46,7 +48,7 @@ def get_final_data_csv(dataFileName, journalFileName, journalInfoFileName, folde
     - folderName: name of folder where journal data is stored
     '''
     # initialise file for article data
-    dataHeader = ['journal', 'article_ID', 'pmid', 'pubdate_year', 'citation_count', 'fre', 'ndc', 'ndc_perc_difficult']
+    dataHeader = ['journal', 'article_ID', 'pmid', 'pubdate_year', 'citation_count', 'citation_count_per_year', 'fre', 'ndc', 'ndc_perc_difficult']
     dataFile = open(dataFileName, 'w', encoding='UTF8', newline='')
     dataWriter = csv.writer(dataFile)
     dataWriter.writerow(dataHeader) # write header row
@@ -100,12 +102,13 @@ def get_final_data_csv(dataFileName, journalFileName, journalInfoFileName, folde
 
             # citations
             citation_count = citation_counts[pmid] 
+            citation_count_per_year = citation_count / (date.today().year - pubdate_year + 1)
 
             # readability measures
             fre, ndc, ndc_perc_difficult = getReadability(abstract_text)
 
             # record article data 
-            line = [journal, article_ID, pmid, pubdate_year, citation_count, fre, ndc, ndc_perc_difficult]
+            line = [journal, article_ID, pmid, pubdate_year, citation_count, citation_count_per_year, fre, ndc, ndc_perc_difficult]
             dataWriter.writerow(line)
         searchResults.close()
         # record journal data
