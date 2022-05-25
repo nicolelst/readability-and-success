@@ -233,7 +233,8 @@ def analyze(path,spath,textType='abstracttext',columnList={'doi','pmid','pubdate
     data = pd.read_json(path)
     data.sort_index(inplace=True)
     data.replace('', np.nan, inplace=True)
-    data = data.ix[data[textType].dropna().index] #Drop nan rows
+    # data = data.ix[data[textType].dropna().index] #Drop nan rows
+    data.dropna(subset = [textType], inplace = True) #todo edit
 
     lang = pd.DataFrame(index=data.index,columns=columnList)
 
