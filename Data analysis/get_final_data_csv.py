@@ -44,7 +44,7 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
             journal = '%s[Journal]' % journalInfo.journal[journal_ID]
             journal = journal.replace(' ','_').replace('\"','').lower()
             searchResults = open('%s/abstracts/%s/id_article/language_abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi/searchresults' % (dataFolderName, journal))
-        journal = journal.rstrip("[journal]")
+        journal = journal.replace("[journal]", "")
 
         print("INITIALIZING...\t", journal_ID, journal)
         data = json.load(searchResults)        
@@ -166,20 +166,22 @@ def get_final_data_csv(outputDataFileName, outputJournalFileName, journalListFil
 
 
 def main(): 
-    get_final_data_csv(outputDataFileName = 'Data analysis/articles_test.csv', \
-                        outputJournalFileName = 'Data analysis/journals_test.csv', \
-                        journalListFileName = 'Journal selection/testJournals.csv', \
-                        dataFolderName = 'topJournalData')
+    # get_final_data_csv(outputDataFileName = 'Data analysis/articles_test.csv', \
+    #                     outputJournalFileName = 'Data analysis/journals_test.csv', \
+    #                     journalListFileName = 'Journal selection/testJournals.csv', \
+    #                     dataFolderName = 'topJournalData')
 
-    # get_final_data_csv(dataFileName = 'Data analysis/top_journals_articles.csv', \ 
-    #                     journalFileName = 'Data analysis/top_journals_info.csv', \
-    #                     journalInfoFileName = 'Journal selection/topJournals.csv', \
+    # print("============== TOP JOURNALS ==============")
+    # get_final_data_csv(outputDataFileName = 'Data analysis/top_journals_articles.csv', \
+    #                     outputJournalFileName = 'Data analysis/top_journals_info.csv', \
+    #                     journalListFileName = 'Journal selection/topJournals.csv', \
     #                     dataFolderName = 'topJournalData')
     
-    # get_final_data_csv(dataFileName = 'Data analysis/median_journals_articles.csv', \ 
-    #                     journalFileName = 'Data analysis/median_journals_info.csv', \
-    #                     journalInfoFileName = 'Journal selection/medianJournals.csv', \
-    #                     dataFolderName = 'medianJournalData')
+    print("============== MEDIAN JOURNALS ==============")
+    get_final_data_csv(outputDataFileName = 'Data analysis/median_journals_articles.csv', \
+                        outputJournalFileName = 'Data analysis/median_journals_info.csv', \
+                        journalListFileName = 'Journal selection/medianJournals.csv', \
+                        dataFolderName = 'medianJournalData')
 
 main()
 

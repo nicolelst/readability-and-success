@@ -1,0 +1,160 @@
+journal_ID,journal,journal_full_title,downloaded_articles,missing_abstracts,non_english_articles,usable_articles
+0,microbiology,Microbiology,1,0,0,1
+1,diagnostic_and_interventional_imaging,Diagnostic and interventional imaging,1476,948,0,528
+2,eneuro,eNeuro,2112,643,0,1469
+3,evodevo,EvoDevo,345,74,0,271
+4,geospatial_health,Geospatial health,646,108,0,538
+5,hno,HNO,8346,4530,3803,13
+6,journal_of_medicine_and_life,Journal of medicine and life,1508,264,0,1244
+7,malacologia,Malacologia,56,29,2,25
+8,mammalia,Mammalia,32,32,0,0
+9,medicina,Medicina,9032,6887,1843,302
+10,medicina,Medicina,9032,6887,1843,302
+11,medicina,Medicina,9032,6887,1843,302
+12,medicina,Medicina,9032,6887,1843,302
+13,medicina,Medicina,9032,6887,1843,302
+14,medicina,Medicina,9032,6887,1843,302
+15,medicina,Medicina,9032,6887,1843,302
+16,medicina,Medicina,9032,6887,1843,302
+17,metals,Metals,2,0,0,2
+18,microbiologyopen,MicrobiologyOpen,1149,694,0,455
+19,neonatal_network_nn,Neonatal network : NN,2201,1155,0,1046
+20,phytotaxa,Phytotaxa,4,1,0,3
+21,zeitschrift_fur_orthopadie_und_unfallchirurgie,Zeitschrift fur Orthopadie und Unfallchirurgie,1871,1373,489,9
+22,extremes,Extremes,5,2,0,3
+23,interciencia,Interciencia,4,0,2,2
+24,islets,Islets,390,299,0,91
+25,nefrologia,Nefrologia : publicacion oficial de la Sociedad Espanola Nefrologia,3509,2260,1184,65
+26,therapie,Therapie,6995,5124,1451,420
+27,algorithms,Algorithms,9,3,0,6
+28,bioengineered,Bioengineered,2526,1062,0,1464
+29,chemistryselect,ChemistrySelect,38,20,0,18
+30,journal_of_korean_neurosurgical_society,Journal of Korean Neurosurgical Society,2225,416,0,1809
+31,journal_of_the_international_phonetic_association,Journal of the International Phonetic Association,3,0,0,3
+32,kolner_zeitschrift_fur_soziologie_und_sozialpsychologie,Kolner Zeitschrift fur Soziologie und Sozialpsychologie,22,14,7,1
+33,post_reproductive_health,Post reproductive health,263,182,0,81
+34,psychiatria_danubina,Psychiatria Danubina,2685,685,53,1947
+35,psychiatrische_praxis,Psychiatrische Praxis,3136,1372,1760,4
+36,yearbook_of_medical_informatics,Yearbook of medical informatics,807,284,0,523
+37,calcolo,Calcolo,5,2,0,3
+38,cartilage,Cartilage,873,350,0,523
+39,die_rehabilitation,Die Rehabilitation,2120,875,1241,4
+40,erdkunde,Erdkunde,11,4,7,0
+41,hamostaseologie,Hamostaseologie,1056,374,302,380
+42,infor,INFOR,1,0,0,1
+43,j_coll_physicians_surg_pak,Journal of the College of Physicians and Surgeons--Pakistan : JCPSP,5989,2018,0,3971
+44,j_indian_soc_pedod_prev_dent,Journal of the Indian Society of Pedodontics and Preventive Dentistry,1555,303,0,1252
+45,mobile_dna,Mobile DNA,349,89,0,260
+46,nuclear_receptor_signaling,Nuclear receptor signaling,102,12,0,90
+47,psychologica_belgica,Psychologica Belgica,180,12,0,168
+48,semiotica,Semiotica,1,0,0,1
+49,statistics,Statistics,5,0,0,5
+50,adv_perit_dial,Advances in peritoneal dialysis. Conference on Peritoneal Dialysis,1435,56,0,1379
+51,b-ent,B-ENT,754,52,0,702
+52,bioacoustics,Bioacoustics,5,0,0,5
+53,der_radiologe,Der Radiologe,6939,2998,3810,131
+54,health_systems_in_transition,Health systems in transition,74,3,0,71
+55,medsurg_nurs,Medsurg nursing : official journal of the Academy of Medical-Surgical Nurses,1688,856,0,832
+56,neurophotonics,Neurophotonics,489,187,0,302
+57,photoacoustics,Photoacoustics,327,136,0,191
+58,yao_xue_xue_bao_=_acta_pharmaceutica_sinica,Yao xue xue bao = Acta pharmaceutica Sinica,7545,2537,4661,347
+59,zentralblatt_fur_chirurgie,Zentralblatt fur Chirurgie,14853,10056,4736,61
+60,annals_of_indian_academy_of_neurology,Annals of Indian Academy of Neurology,2059,1020,0,1039
+61,aquaculture_environment_interactions,Aquaculture Environment Interactions,1,0,0,1
+62,cancer_radiother,Cancer radiotherapie : journal de la Societe francaise de radiotherapie oncologique,2592,559,1666,367
+63,dental_update,Dental update,3249,1438,0,1811
+64,games_for_health_journal,Games for health journal,591,343,0,248
+65,geochronometria,Geochronometria,1,1,0,0
+66,j_ayub_med_coll_abbottabad,"Journal of Ayub Medical College, Abbottabad : JAMC",3065,589,0,2476
+67,journal_of_integrative_medicine,Journal of integrative medicine,582,316,0,266
+68,j_int_assoc_provid_aids_care,Journal of the International Association of Providers of AIDS Care,660,157,0,503
+69,journal_of_the_pediatric_infectious_diseases_society,Journal of the Pediatric Infectious Diseases Society,1185,480,0,705
+70,journal_of_the_south_african_veterinary_association,Journal of the South African Veterinary Association,2368,510,83,1775
+71,progress_in_the_chemistry_of_organic_natural_products,Progress in the chemistry of organic natural products,74,32,0,42
+72,surgical_technology_international,Surgical technology international,1987,327,0,1660
+73,zeitschrift_fur_soziologie,Zeitschrift fur Soziologie,13,0,13,0
+74,zhonghua_liu_xing_bing_xue_za_zhi,Zhonghua liu xing bing xue za zhi = Zhonghua liuxingbingxue zazhi,7842,4068,3772,2
+75,adicciones,Adicciones,614,315,253,46
+76,annual_review_of_nursing_research,Annual review of nursing research,457,179,0,278
+77,epidemiologia_e_prevenzione,Epidemiologia e prevenzione,2871,1685,1033,153
+78,fly,Fly,537,66,0,471
+79,korean_journal_of_ophthalmology_kjo,Korean journal of ophthalmology : KJO,1729,684,0,1045
+80,population,Population,118,115,0,3
+81,positivity,Positivity,4,2,0,2
+82,radiography,Radiography,2119,2028,0,91
+83,skin_therapy_letter,Skin therapy letter,371,51,0,320
+84,strabismus,Strabismus,920,421,0,499
+85,transcription,Transcription,385,55,0,330
+86,chemistryopen,ChemistryOpen,1089,679,0,410
+87,continuum,Continuum,113,111,0,2
+88,de_economist,De Economist,10,0,0,10
+89,differences,Differences,1,0,0,1
+90,international_journal_of_older_people_nursing,International journal of older people nursing,744,398,0,346
+91,journal_of_the_american_psychiatric_nurses_association,Journal of the American Psychiatric Nurses Association,752,277,0,475
+92,journal_of_the_indian_institute_of_science,Journal of the Indian Institute of Science,51,17,0,34
+93,journal_of_the_indian_medical_association,Journal of the Indian Medical Association,11686,9101,0,2585
+94,metroeconomica,Metroeconomica,4,0,0,4
+95,neuroethics,Neuroethics,71,8,0,63
+96,ratio,Ratio,2,0,0,2
+97,sydowia,Sydowia,6,0,0,6
+98,anatolian_journal_of_cardiology,Anatolian journal of cardiology,1782,1467,0,315
+99,annals_of_gis,Annals of GIS,4,0,0,4
+100,biomedicines,Biomedicines,3874,1098,0,2776
+101,biosocieties,BioSocieties,55,13,0,42
+102,br_j_hosp_med_(lond),"British journal of hospital medicine (London, England : 2005)",4380,2930,0,1450
+103,cytologia,Cytologia,294,293,0,1
+104,geburtshilfe_und_frauenheilkunde,Geburtshilfe und Frauenheilkunde,7860,4637,3150,73
+105,glob_health_sci_pract,"Global health, science and practice",735,274,0,461
+106,heliyon,Heliyon,9201,3245,0,5956
+107,helminthologia,Helminthologia,182,53,0,129
+108,hippokratia,Hippokratia,1016,392,0,624
+109,journal_of_indian_society_of_periodontology,Journal of Indian Society of Periodontology,1473,457,0,1016
+110,microbial_genomics,Microbial genomics,769,377,0,392
+111,nurs_leadersh_(tor_ont),"Nursing leadership (Toronto, Ont.)",804,279,0,525
+112,operative_orthopadie_und_traumatologie,Operative Orthopadie und Traumatologie,1018,705,287,26
+113,proceedings_of_the_entomological_society_of_washington,Proceedings of the Entomological Society of Washington,2,0,0,2
+114,revista_da_escola_de_enfermagem_da_u_s_p,Revista da Escola de Enfermagem da U S P,3982,1914,1987,81
+115,schweizer_archiv_fur_tierheilkunde,Schweizer Archiv fur Tierheilkunde,3639,2618,847,174
+116,sensing_and_bio-sensing_research,Sensing and Bio-Sensing Research,15,9,0,6
+117,shokuhin_eiseigaku_zasshi,Shokuhin eiseigaku zasshi. Journal of the Food Hygienic Society of Japan,1161,378,612,171
+118,virologica_sinica,Virologica Sinica,1006,526,0,480
+119,z_evid_fortbild_qual_gesundhwes,"Zeitschrift fur Evidenz, Fortbildung und Qualitat im Gesundheitswesen",1372,530,706,136
+120,zeitschrift_fur_psychosomatische_medizin_und_psychotherapie,Zeitschrift fur Psychosomatische Medizin und Psychotherapie,750,376,361,13
+121,argumentation,Argumentation,3,0,0,3
+122,bulletin_of_the_malaysian_mathematical_sciences_society,Bulletin of the Malaysian Mathematical Sciences Society,3,1,0,2
+123,cytojournal,CytoJournal,478,141,0,337
+124,endokrynologia_polska,Endokrynologia Polska,3189,2000,392,797
+125,herd,HERD,881,321,0,560
+126,human_gene_therapy_methods,Human gene therapy methods,249,105,0,144
+127,iscience,iScience,4121,1873,0,2248
+128,j_healthc_qual,Journal for healthcare quality : official publication of the National Association for Healthcare Quality,1401,244,0,1157
+129,journal_of_clinical_and_experimental_hematopathology_jceh,Journal of clinical and experimental hematopathology : JCEH,414,145,0,269
+130,journal_of_the_royal_army_medical_corps,Journal of the Royal Army Medical Corps,3296,1961,0,1335
+131,meta,Meta,1,1,0,0
+132,nano,Nano,2,0,0,2
+133,oceanology,Oceanology,1,0,0,1
+134,osiris,Osiris,175,87,0,88
+135,physiotherapy_canada_physiotherapie_canada,Physiotherapy Canada. Physiotherapie Canada,951,755,6,190
+136,sucht,Sucht,2,0,0,2
+137,transactions_of_the_royal_historical_society,Transactions of the Royal Historical Society,11,7,0,4
+138,zhonghua_yi_xue_za_zhi,Zhonghua yi xue za zhi,17385,9312,8067,6
+139,zhonghua_yi_xue_za_zhi,Zhonghua yi xue za zhi,17385,9312,8067,6
+140,acta_medica_(hradec_kralove),Acta medica (Hradec Kralove),851,116,0,735
+141,anasthesiol_intensivmed_notfallmed_schmerzther,"Anasthesiologie, Intensivmedizin, Notfallmedizin, Schmerztherapie : AINS",3444,1777,1649,18
+142,archivaria,Archivaria,16,16,0,0
+143,cilia,Cilia,102,32,0,70
+144,der_pathologe,Der Pathologe,3461,2048,1407,6
+145,endeavour,Endeavour,865,383,0,482
+146,home_healthcare_now,Home healthcare now,844,572,0,272
+147,indian_journal_of_public_health,Indian journal of public health,2491,1287,0,1204
+148,i-perception,i-Perception,741,121,0,620
+149,journal_of_the_royal_society_of_western_australia,Journal of the Royal Society of Western Australia,3,0,0,3
+150,journal_of_visceral_surgery,Journal of visceral surgery,1173,675,0,498
+151,nursing_times,Nursing times,39110,35511,0,3599
+152,orbis,Orbis,21,10,0,11
+153,polimery,Polimery,1,0,0,1
+154,polity,Polity,1,1,0,0
+155,screen,Screen,1,1,0,0
+156,skinmed,Skinmed,1653,881,0,772
+157,zhonghua_yu_fang_yi_xue_za_zhi,Zhonghua yu fang yi xue za zhi [Chinese journal of preventive medicine],5201,3146,2015,40
+158,zoosystema,Zoosystema,1,1,0,0
