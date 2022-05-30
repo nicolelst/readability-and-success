@@ -5,6 +5,7 @@ import os
 from numpy import nan
 import pandas as pd
 import sys
+
 sys.path.append("./readabilityinscience")
 import functions.readabilityFunctions as rf
 sys.path.append("./pmidcite/src")
@@ -139,8 +140,6 @@ def get_citations(outputDataFileName, outputJournalFileName):
         print("Failed to get citations, retrying journal by journal...")
         journalData = pd.read_csv(outputJournalFileName, index_col="journal_ID")
         for journal_ID, journal in journalData['journal'].iteritems(): 
-            if journal_ID == 3:
-                continue
             print("> Getting citations for", journal_ID, journal)
             selectedData = outputData[outputData.index.get_level_values(0)==journal_ID] # get only rows with matching journalID
             pmids = selectedData['pmid'].astype('int64').tolist()
@@ -155,10 +154,8 @@ def get_citations(outputDataFileName, outputJournalFileName):
     #     json.dump(citation_counts, outfile)
 
     # f = open('pmids_citation_dict.json')
-    citation_counts = json.load(f)
+    # citation_counts = json.load(f)
     for index in outputData.index.values:
-        if index[0]==3:
-            continue
         pmid = str(int(outputData.loc[index]['pmid']))
         pubdate_year = outputData.loc[index]['pubdate_year']
         outputData.loc[index, 'citation_count'] = citation_counts[pmid] 
@@ -193,9 +190,9 @@ def get_final_data_csv(outputDataFileName, outputJournalFileName, journalListFil
 
     # TODO print total counts after each section?
     # TODO why top pmid are floats
-    init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFileName, dataFolderName)
-    print("REMOVING REPEATED ARTICLES...")
-    remove_repeated_articles(outputDataFileName, outputJournalFileName)
+    # init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFileName, dataFolderName)
+    # print("REMOVING REPEATED ARTICLES...")
+    # remove_repeated_articles(outputDataFileName, outputJournalFileName)
     # TODO redo top journal 3 memory error
     print("GETTING CITATIONS...")
     get_citations(outputDataFileName, outputJournalFileName)
@@ -203,9 +200,9 @@ def get_final_data_csv(outputDataFileName, outputJournalFileName, journalListFil
     # 0 citations, 0 years (2022 pub), no pubdate, nan(?)
     print("CALCULATING READABILITY...")
     journalData = pd.read_csv(outputJournalFileName, index_col="journal_ID")
-    for journal_ID, journal in journalData['journal'].iteritems(): 
+    # for journal_ID, journal in journalData['journal'].iteritems(): 
     # TODO get readability for 3
-    # for journal_ID in [3]: 
+    for journal_ID in [3]: 
         print("analysing", journal_ID)
         journal = journalData.loc[journal_ID, 'journal']
         if journalData.loc[journal_ID, 'final_article_count'] == 0: # TODO test?
@@ -213,6 +210,39 @@ def get_final_data_csv(outputDataFileName, outputJournalFileName, journalListFil
         get_readability(journal_ID, journal, outputDataFileName, dataFolderName)
         print("ANALYSIS COMPLETED!\t", journal_ID, journal)
 
+
+def split_searchresults(numSplit, journalName, dataFolderName):
+    '''
+    Function parameters:
+    - numSplit: number of subsets to divide the searchresults into
+    - journalName: name of journal
+    - dataFolderName: name of folder where journal data is stored
+    ''' 
+    searchresults_path = '%s/abstracts/%s[journal]/id_article/language_abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi/searchresults' % (dataFolderName, journalName)
+    f = open(searchresults_path)
+    searchresults = json.load(f)
+    searchTerms = list(searchresults.keys())
+    
+    numResults = len(searchresults[searchTerms[0]].keys()) 
+    subsetSize = numResults // numSplit
+
+    for i in range(1, numSplit+1):
+        start = subsetSize * (i-1)
+        if i == numSplit:
+            end = numResults
+        else: 
+            end = subsetSize * i
+
+        subset = {}
+        for search in searchTerms: 
+            subsection = dict(list(searchresults[search].items())[start:end])
+            subset[search] = subsection
+            print("split %d (%s): %d items" % (i, search, len(subsection.keys())))
+
+        filepath = searchresults_path + "_split" + str(i) + ".json"        
+        with open(filepath, "w") as outfile:
+            json.dump(subset, outfile)
+    
 
 def main(): 
     # get_final_data_csv(outputDataFileName = 'Data analysis/articles_test.csv', \
@@ -226,12 +256,59 @@ def main():
     #                     journalListFileName = 'Journal selection/medianJournals.csv', \
     #                     dataFolderName = 'medianJournalData')
 
-    print("============== TOP JOURNALS ==============") # 259,000 of 1,253,545
-    get_final_data_csv(outputDataFileName = 'Data analysis/top_journals_articles.csv', \
-                        outputJournalFileName = 'Data analysis/top_journals_info.csv', \
-                        journalListFileName = 'Journal selection/topJournals.csv', \
-                        dataFolderName = 'topJournalData')
+    # print("============== TOP JOURNALS ==============") # 259,000 of 1,253,545
+    # get_final_data_csv(outputDataFileName = 'Data analysis/top_journals_articles.csv', \
+    #                     outputJournalFileName = 'Data analysis/top_journals_info.csv', \
+    #                     journalListFileName = 'Journal selection/topJournals.csv', \
+    #                     dataFolderName = 'topJournalData')
+
+    split_searchresults(numSplit=4, \
+            journalName = 'proc_natl_acad_sci_u_s_a', \
+            dataFolderName = 'topJournalData')
+    """
+    split 1: 0 to 37143, split 2: 37143 to 74287, split 3: 74287 to 111430, split 4: 111430 to 148574
     
+    split 1 (index): 37143 items
+    split 1 (articleID): 37143 items
+    split 1 (abstracttext): 37143 items
+    split 1 (articletitle): 37143 items
+    split 1 (doi): 37143 items
+    split 1 (journal_title): 37143 items
+    split 1 (keyword): 37143 items
+    split 1 (language): 37143 items
+    split 1 (pmid): 37143 items
+    split 1 (pubdate_year): 37143 items
+    split 2 (index): 37143 items
+    split 2 (articleID): 37143 items
+    split 2 (abstracttext): 37143 items
+    split 2 (articletitle): 37143 items
+    split 2 (doi): 37143 items
+    split 2 (journal_title): 37143 items
+    split 2 (keyword): 37143 items
+    split 2 (language): 37143 items
+    split 2 (pmid): 37143 items
+    split 2 (pubdate_year): 37143 items
+    split 3 (index): 37143 items
+    split 3 (articleID): 37143 items
+    split 3 (abstracttext): 37143 items
+    split 3 (articletitle): 37143 items
+    split 3 (doi): 37143 items
+    split 3 (journal_title): 37143 items
+    split 3 (keyword): 37143 items
+    split 3 (language): 37143 items
+    split 3 (pmid): 37143 items
+    split 3 (pubdate_year): 37143 items
+    split 4 (index): 37145 items
+    split 4 (articleID): 37145 items
+    split 4 (abstracttext): 37145 items
+    split 4 (articletitle): 37145 items
+    split 4 (doi): 37145 items
+    split 4 (journal_title): 37145 items
+    split 4 (keyword): 37145 items
+    split 4 (language): 37145 items
+    split 4 (pmid): 37145 items
+    split 4 (pubdate_year): 37145 items
+    """
 
 main()
 
