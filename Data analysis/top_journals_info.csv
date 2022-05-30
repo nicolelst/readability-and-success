@@ -1,0 +1,136 @@
+journal_ID,journal,journal_full_title,downloaded_articles,missing_abstracts,non_english_articles,usable_articles,final_article_count
+0,nature,Nature,125003,96513,0,28490,28490.0
+1,science,"Science (New York, N.Y.)",181059,127445,0,53614,53614.0
+2,cell,Cell,21540,5633,0,15907,15907.0
+3,proc_natl_acad_sci_u_s_a,Proceedings of the National Academy of Sciences of the United States of America,148574,32770,0,115804,115798.0
+4,journal_of_the_american_chemical_society,Journal of the American Chemical Society,66927,23363,0,43564,43564.0
+5,circulation,Circulation,45870,23619,0,22251,22251.0
+6,neuron,Neuron,12285,3137,0,9148,9148.0
+7,blood,Blood,49637,15963,0,33674,33674.0
+8,journal_of_the_american_college_of_cardiology,Journal of the American College of Cardiology,28103,14392,0,13711,13711.0
+9,gastroenterology,Gastroenterology,32015,18470,0,13545,13545.0
+10,immunity,Immunity,5506,2109,0,3397,3397.0
+11,biomaterials,Biomaterials,17936,4429,0,13507,13507.0
+12,neuroimage,NeuroImage,17956,2777,0,15179,15179.0
+13,neurology,Neurology,42468,21758,0,20710,20710.0
+14,journal_of_the_national_cancer_institute,Journal of the National Cancer Institute,22697,13597,0,9100,9100.0
+15,pediatrics,Pediatrics,37600,18758,0,18842,18842.0
+16,oncogene,Oncogene,21036,2510,0,18526,18526.0
+17,diabetes,Diabetes,17121,5728,0,11393,11393.0
+18,stroke,Stroke,22007,8523,0,13484,13484.0
+19,macromolecules,Macromolecules,717,275,0,442,442.0
+20,cancer,Cancer,43084,13332,0,29752,29752.0
+21,radiology,Radiology,37493,17116,0,20377,20377.0
+22,ecology,Ecology,5280,1239,0,4041,4041.0
+23,gut,Gut,18064,7621,0,10443,10443.0
+24,chest,Chest,36511,17305,0,19206,19206.0
+25,carbon,Carbon,71,25,0,46,46.0
+26,journal_of_the_american_society_of_nephrology_jasn,Journal of the American Society of Nephrology : JASN,9780,2673,0,7107,7107.0
+27,journal_of_the_electrochemical_society,Journal of the Electrochemical Society,48,23,0,25,25.0
+28,polymer,Polymer,84,32,0,52,52.0
+29,pain,Pain,11337,3237,0,8100,8100.0
+30,endocrinology,Endocrinology,37086,12374,0,24712,24712.0
+31,spine,Spine,19003,5544,0,13459,13459.0
+32,biochemistry,Biochemistry,66329,14696,1,51632,51632.0
+33,annals_of_the_new_york_academy_of_sciences,Annals of the New York Academy of Sciences,49606,29455,0,20151,20151.0
+34,chemosphere,Chemosphere,32030,15766,0,16264,16264.0
+35,genetics,Genetics,20410,5709,0,14701,14701.0
+36,ophthalmology,Ophthalmology,16829,7036,0,9793,9793.0
+37,journal_of_the_american_academy_of_child_and_adolescent_psychiatry,Journal of the American Academy of Child and Adolescent Psychiatry,7046,3080,0,3966,3966.0
+38,anesthesiology,Anesthesiology,24628,16073,0,8555,8555.0
+39,journal_of_the_american_geriatrics_society,Journal of the American Geriatrics Society,18906,10950,0,7956,7956.0
+40,diabetologia,Diabetologia,12452,4734,4,7714,7714.0
+41,nanoscale,Nanoscale,21796,7131,0,14665,14665.0
+42,tetrahedron,Tetrahedron,1046,614,0,432,432.0
+43,thorax,Thorax,13750,7211,0,6539,6539.0
+44,biomacromolecules,Biomacromolecules,9206,2443,0,6763,6763.0
+45,neuroscience,Neuroscience,25383,4453,0,20930,20930.0
+46,geology,Geology,30,8,0,22,22.0
+47,journal_of_the_american_academy_of_dermatology,Journal of the American Academy of Dermatology,22929,12807,0,10122,10122.0
+48,sleep,Sleep,6761,2314,1,4446,4446.0
+49,neuropsychologia,Neuropsychologia,9692,1614,6,8072,8072.0
+50,carcinogenesis,Carcinogenesis,12582,1198,0,11384,11384.0
+51,transplantation,Transplantation,26178,9463,0,16715,16715.0
+52,nanotechnology,Nanotechnology,17403,6868,0,10535,10535.0
+53,bone,Bone,8797,2605,0,6192,6192.0
+54,evolution;_international_journal_of_organic_evolution,Evolution; international journal of organic evolution,10190,3293,0,6897,6897.0
+55,neurosurgery,Neurosurgery,19006,5896,0,13110,13110.0
+56,bulletin_of_the_american_meteorological_society,Bulletin of the American Meteorological Society,29,11,0,18,18.0
+57,journal_of_the_american_statistical_association,Journal of the American Statistical Association,753,127,0,626,626.0
+58,psychopharmacology,Psychopharmacology,15051,3244,18,11789,11789.0
+59,oecologia,Oecologia,13796,3417,109,10270,10270.0
+60,leukemia,Leukemia,12575,4933,0,7642,7642.0
+61,epilepsia,Epilepsia,12276,3705,0,8571,8571.0
+62,cognition,Cognition,4658,841,0,3817,3817.0
+63,desalination,Desalination,6,3,0,3,3.0
+64,vaccine,Vaccine,24933,7677,0,17256,17256.0
+65,microbiology,Microbiology,1,0,0,1,1.0
+66,gene,Gene,23602,3512,0,20090,20090.0
+67,journal_of_the_american_college_of_surgeons,Journal of the American College of Surgeons,8296,4845,0,3451,3451.0
+68,urology,Urology,27035,10279,0,16756,16756.0
+69,phytochemistry,Phytochemistry,8076,1903,0,6173,6173.0
+70,virology,Virology,26914,9317,0,17597,17597.0
+71,virology,Virology,26914,9317,0,17597,0.0
+72,psychoneuroendocrinology,Psychoneuroendocrinology,5783,1708,0,4075,4075.0
+73,cold_spring_harbor_perspectives_in_biology,Cold Spring Harbor perspectives in biology,1499,186,0,1313,1313.0
+74,epidemiology,"Epidemiology (Cambridge, Mass.)",4941,2069,0,2872,2872.0
+75,rheumatology,Rheumatology,59,38,0,21,21.0
+76,organometallics,Organometallics,300,147,0,153,153.0
+77,atherosclerosis,Atherosclerosis,14595,5083,1,9511,9511.0
+78,journal_of_the_academy_of_nutrition_and_dietetics,Journal of the Academy of Nutrition and Dietetics,2282,1639,0,643,643.0
+79,computer,Computer,23,2,0,21,21.0
+80,philos_trans_a_math_phys_eng_sci,"Philosophical transactions. Series A, Mathematical, physical, and engineering sciences",5939,1301,0,4638,4638.0
+81,bulletin_of_the_world_health_organization,Bulletin of the World Health Organization,11139,5054,51,6034,6034.0
+82,tectonophysics,Tectonophysics,6,6,0,0,0.0
+83,neuropharmacology,Neuropharmacology,12705,4403,0,8302,8302.0
+84,proteomics,Proteomics,6900,971,0,5929,5929.0
+85,lithos,Lithos,7,7,0,0,0.0
+86,geoderma,Geoderma,37,20,0,17,17.0
+87,drugs,Drugs,7754,2430,60,5264,5264.0
+88,surgery,Surgery,23313,13478,0,9835,9835.0
+89,talanta,Talanta,25450,7867,114,17469,17469.0
+90,toxicology,Toxicology,8620,1552,14,7054,7054.0
+91,electrophoresis,Electrophoresis,12676,2277,0,10399,10399.0
+92,planta,Planta,12203,3406,418,8379,8379.0
+93,chemsuschem,ChemSusChem,5647,3656,0,1991,1991.0
+94,journal_of_acquired_immune_deficiency_syndromes_(1999),Journal of acquired immune deficiency syndromes (1999),7744,2567,0,5177,5177.0
+95,psychophysiology,Psychophysiology,5866,2632,0,3234,3234.0
+96,hippocampus,Hippocampus,3005,610,0,2395,2395.0
+97,clinical_journal_of_the_american_society_of_nephrology_cjasn,Clinical journal of the American Society of Nephrology : CJASN,4824,2265,0,2559,2559.0
+98,journal_of_the_american_medical_informatics_association_jamia,Journal of the American Medical Informatics Association : JAMIA,3924,1043,0,2881,2881.0
+99,journal_of_the_european_ceramic_society,Journal of the European Ceramic Society,6,2,0,4,4.0
+100,autophagy,Autophagy,3900,858,0,3042,3042.0
+101,biogeochemistry,Biogeochemistry,31,20,0,11,11.0
+102,science_advances,Science advances,8614,2190,0,6424,6424.0
+103,journal_of_the_association_for_information_science_and_technology,Journal of the Association for Information Science and Technology,29,0,0,29,29.0
+104,appetite,Appetite,6476,2433,0,4043,4043.0
+105,endoscopy,Endoscopy,12705,9169,1,3535,3535.0
+106,neurocomputing,Neurocomputing,86,6,0,80,80.0
+107,haematologica,Haematologica,13679,7831,0,5848,5848.0
+108,omega,Omega,1211,231,0,980,980.0
+109,omega,Omega,1211,231,0,980,0.0
+110,genomics,Genomics,9944,1418,0,8526,8526.0
+111,synthesis,Synthesis,123,38,0,85,85.0
+112,synthesis,Synthesis,123,38,0,85,0.0
+113,elife,eLife,12697,2724,0,9973,9973.0
+114,nature_reviews_rheumatology,Nature reviews. Rheumatology,2465,1708,0,757,757.0
+115,biochimie,Biochimie,8858,2946,255,5657,5657.0
+116,resuscitation,Resuscitation,8946,4614,7,4325,4325.0
+117,tectonics,Tectonics,10,10,0,0,0.0
+118,immunology,Immunology,12813,3456,0,9357,9357.0
+119,theriogenology,Theriogenology,11653,4053,0,7600,7600.0
+120,crystengcomm,CrystEngComm,46,18,0,28,28.0
+121,transfusion,Transfusion,14496,7085,0,7411,7411.0
+122,transfusion,Transfusion,14496,7085,0,7411,0.0
+123,biotechniques,BioTechniques,7065,3232,0,3833,3833.0
+124,phytopathology,Phytopathology,4964,1140,0,3824,3824.0
+125,biometrics,Biometrics,5645,1295,1,4349,4349.0
+126,neuropsychology,Neuropsychology,1930,187,0,1743,1743.0
+127,demography,Demography,2912,458,0,2454,2454.0
+128,catena,Catena,2,1,0,1,1.0
+129,ecography,Ecography,23,3,0,20,20.0
+130,electroanalysis,Electroanalysis,44,14,0,30,30.0
+131,glycobiology,Glycobiology,3595,919,0,2676,2676.0
+132,ambio,Ambio,2476,665,0,1811,1811.0
+133,journal_of_the_american_society_for_mass_spectrometry,Journal of the American Society for Mass Spectrometry,6093,2110,0,3983,3983.0
+134,oncotarget,Oncotarget,26177,8455,0,17722,17722.0
