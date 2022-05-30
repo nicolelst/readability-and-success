@@ -27,14 +27,13 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
     dataWriter.writerow(dataHeader) # write header row
 
     # initialise file for journal data
-    journalHeader = ['journal_ID', 'journal', 'journal_full_title', 'downloaded_articles', 'missing_abstracts', 'non_english_articles', 'usable_articles']
+    journalHeader = ['journal_ID', 'journal', 'journal_full_title', 'downloaded_articles', 'missing_abstracts', 'non_english_articles', 'usable_articles', 'final_article_count']
     journalsFile = open(outputJournalFileName, 'w', encoding='UTF8', newline='')
     journalsWriter = csv.writer(journalsFile)
     journalsWriter.writerow(journalHeader) # write header row
 
     # iterate list of journals
     journalInfo = pd.read_csv(journalListFileName, index_col="journalID")
-    pmids = []
     for journal_ID in journalInfo.index.values: #list(range(0, len(journalInfo))):
         # find search results for journal
         journal = journalInfo.search[journal_ID].replace(' ','_').replace('\"','').lower()
@@ -63,7 +62,6 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
 
             article_ID = articleID 
             pmid = data['pmid'][articleID]
-            pmids.append(pmid)
             pubdate_year = data['pubdate_year'][articleID]
 
             # record article data 
@@ -71,12 +69,27 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
             dataWriter.writerow(line)
         searchResults.close()
         # record journal data
-        line = [journal_ID, journal, list(data['journal_title'].values())[0], len(list(data['articleID'].keys())), num_missing_abstract, num_non_eng, len(list(data['articleID'].keys())) - num_missing_abstract - num_non_eng]
+        line = [journal_ID, journal, list(data['journal_title'].values())[0], len(list(data['articleID'].keys())), num_missing_abstract, num_non_eng, len(list(data['articleID'].keys())) - num_missing_abstract - num_non_eng] + [nan]
         journalsWriter.writerow(line)
 
     dataFile.close()
     journalsFile.close()
-    return pmids
+
+
+def remove_repeated_articles(outputDataFileName, outputJournalFileName):
+    '''
+    Removes articles which appear in multiple journals from output data file, 
+    and updates final article count for each journal in output journal file.
+    Only the first occurence of each pmid is preserved.
+    '''
+    outputData = pd.read_csv(outputDataFileName, index_col=['journal_ID', 'article_ID'])
+    outputData = outputData.drop_duplicates(subset=['pmid'], keep='first')
+    outputData.to_csv(outputDataFileName, index=True)
+
+    journalData = pd.read_csv(outputJournalFileName, index_col=['journal_ID'])
+    for journal_ID in journalData.index.values:
+        journalData.loc[journal_ID, 'final_article_count'] = (outputData.index.get_level_values(0)==journal_ID).sum()
+    journalData.to_csv(outputJournalFileName, index=True)
 
 
 def get_readability(journalID, journalName, outputDataFileName, dataFolderName):
@@ -85,7 +98,7 @@ def get_readability(journalID, journalName, outputDataFileName, dataFolderName):
     - journalName: name of journal
     - outputDataFileName: name of data file (output), with data regarding each article
     - dataFolderName: name of folder where journal data is stored
-    ''' # TODO
+    ''' 
     searchresults_path = '%s/abstracts/%s[journal]/id_article/language_abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi/searchresults' % (dataFolderName, journalName)
     readability_path = 'Data analysis/readabilityTemp.json'
     rf.analyze(path = searchresults_path,\
@@ -108,22 +121,45 @@ def get_readability(journalID, journalName, outputDataFileName, dataFolderName):
     os.remove(readability_path)
 
 
-def get_citations(pmids, outputDataFileName):
+def get_citations(outputDataFileName, outputJournalFileName):
     '''
+    Get citations for articles from list of pmids
     Function parameters:
     - pmids: list of pmids
     - outputDataFileName: name of data file (output), with data regarding each article
-    ''' # TODO
-    dnldr = get_downloader() # for citation counts
-    # get citation count for each article in journal
-    nih_entries = dnldr.get_icites(pmids)
-    citation_counts = {}
-    for e in nih_entries:
-        citation_counts[e.dct["pmid"]] = e.dct["citation_count"]
-    
+    ''' 
     outputData = pd.read_csv(outputDataFileName, index_col=['journal_ID', 'article_ID'])
+
+    dnldr = get_downloader() # use pmidcite for citation counts
+    citation_counts = {}
+    try: 
+        pmids = outputData['pmid'].astype('int64').tolist()
+        nih_entries = dnldr.get_icites(pmids)
+    except: 
+        print("Failed to get citations, retrying journal by journal...")
+        journalData = pd.read_csv(outputJournalFileName, index_col="journal_ID")
+        for journal_ID, journal in journalData['journal'].iteritems(): 
+            if journal_ID == 3:
+                continue
+            print("> Getting citations for", journal_ID, journal)
+            selectedData = outputData[outputData.index.get_level_values(0)==journal_ID] # get only rows with matching journalID
+            pmids = selectedData['pmid'].astype('int64').tolist()
+            nih_entries = dnldr.get_icites(pmids)
+            for e in nih_entries:
+                citation_counts[e.dct["pmid"]] = e.dct["citation_count"]
+    else: 
+        for e in nih_entries:
+            citation_counts[e.dct["pmid"]] = e.dct["citation_count"]
+    
+    # with open("pmids_citation_dict.json", "w") as outfile:
+    #     json.dump(citation_counts, outfile)
+
+    # f = open('pmids_citation_dict.json')
+    citation_counts = json.load(f)
     for index in outputData.index.values:
-        pmid = outputData.loc[index]['pmid']
+        if index[0]==3:
+            continue
+        pmid = str(int(outputData.loc[index]['pmid']))
         pubdate_year = outputData.loc[index]['pubdate_year']
         outputData.loc[index, 'citation_count'] = citation_counts[pmid] 
         outputData.loc[index, 'citation_count_per_year'] = citation_counts[pmid] / (date.today().year - pubdate_year)  
@@ -155,12 +191,25 @@ def get_final_data_csv(outputDataFileName, outputJournalFileName, journalListFil
     - dataFolderName: name of folder where journal data is stored
     '''
 
-    pmids = init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFileName, dataFolderName)
+    # TODO print total counts after each section?
+    # TODO why top pmid are floats
+    init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFileName, dataFolderName)
+    print("REMOVING REPEATED ARTICLES...")
+    remove_repeated_articles(outputDataFileName, outputJournalFileName)
+    # TODO redo top journal 3 memory error
     print("GETTING CITATIONS...")
-    get_citations(pmids, outputDataFileName)
+    get_citations(outputDataFileName, outputJournalFileName)
+    # TODO TODO REDO COUNT PER YEAR TODO TODO 
+    # 0 citations, 0 years (2022 pub), no pubdate, nan(?)
     print("CALCULATING READABILITY...")
     journalData = pd.read_csv(outputJournalFileName, index_col="journal_ID")
     for journal_ID, journal in journalData['journal'].iteritems(): 
+    # TODO get readability for 3
+    # for journal_ID in [3]: 
+        print("analysing", journal_ID)
+        journal = journalData.loc[journal_ID, 'journal']
+        if journalData.loc[journal_ID, 'final_article_count'] == 0: # TODO test?
+            continue
         get_readability(journal_ID, journal, outputDataFileName, dataFolderName)
         print("ANALYSIS COMPLETED!\t", journal_ID, journal)
 
@@ -171,17 +220,18 @@ def main():
     #                     journalListFileName = 'Journal selection/testJournals.csv', \
     #                     dataFolderName = 'topJournalData')
 
-    # print("============== TOP JOURNALS ==============")
-    # get_final_data_csv(outputDataFileName = 'Data analysis/top_journals_articles.csv', \
-    #                     outputJournalFileName = 'Data analysis/top_journals_info.csv', \
-    #                     journalListFileName = 'Journal selection/topJournals.csv', \
-    #                     dataFolderName = 'topJournalData')
+    # print("============== MEDIAN JOURNALS ==============") # 71422 articles 
+    # get_final_data_csv(outputDataFileName = 'Data analysis/median_journals_articles.csv', \
+    #                     outputJournalFileName = 'Data analysis/median_journals_info.csv', \
+    #                     journalListFileName = 'Journal selection/medianJournals.csv', \
+    #                     dataFolderName = 'medianJournalData')
+
+    print("============== TOP JOURNALS ==============") # 259,000 of 1,253,545
+    get_final_data_csv(outputDataFileName = 'Data analysis/top_journals_articles.csv', \
+                        outputJournalFileName = 'Data analysis/top_journals_info.csv', \
+                        journalListFileName = 'Journal selection/topJournals.csv', \
+                        dataFolderName = 'topJournalData')
     
-    print("============== MEDIAN JOURNALS ==============")
-    get_final_data_csv(outputDataFileName = 'Data analysis/median_journals_articles.csv', \
-                        outputJournalFileName = 'Data analysis/median_journals_info.csv', \
-                        journalListFileName = 'Journal selection/medianJournals.csv', \
-                        dataFolderName = 'medianJournalData')
 
 main()
 
