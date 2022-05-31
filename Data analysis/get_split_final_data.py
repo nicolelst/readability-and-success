@@ -1,12 +1,8 @@
-import csv
 from datetime import date
 import json
 import os
-from numpy import nan
 import pandas as pd
 import sys
-
-from pyparsing import nums
 
 sys.path.append("./readabilityinscience")
 import functions.readabilityFunctions as rf
@@ -91,6 +87,7 @@ def get_split_citations(indices, outputDataFileName):
 
 
 def get_split_final_data_csv(numSplits, journalID, journal, outputDataFileName, dataFolderName):
+    print("GETTING FINAL DATA FOR", journalID, journal)
     outputData = pd.read_csv(outputDataFileName, index_col=['journal_ID', 'article_ID'])
     selectedData = outputData.loc[outputData.index.get_level_values(0) == journalID]
 
@@ -102,12 +99,11 @@ def get_split_final_data_csv(numSplits, journalID, journal, outputDataFileName, 
 
         splitArticleIDs = list(map(int, list(searchresults['index'].keys())))
         indices = [index for index in selectedData.index.values if (index[1] in splitArticleIDs)]
-        print(len(indices), "results for", len(splitArticleIDs), "article IDs in split") # TODO DEL
+        # print(len(indices), "results for", len(splitArticleIDs), "article IDs in split")
 
-        # print("GETTING CITATIONS...")
-        # get_split_citations(indices, outputDataFileName)
+        print("GETTING CITATIONS...")
+        get_split_citations(indices, outputDataFileName)
         
-        # TODO
         print("CALCULATING READABILITY...")
         get_split_readability(searchresults_path, indices, outputDataFileName)
 
@@ -122,9 +118,9 @@ def main():
     '''
     Run init_final_data_csv and remove_repeated_articles first
     '''
-    # split_searchresults(numSplit=numSplit, \
-    #         journalName = journal, \
-    #         dataFolderName = 'topJournalData')
+    split_searchresults(numSplit=numSplit, \
+            journalName = journal, \
+            dataFolderName = 'topJournalData')
     # split 1: 0 to 37143, split 2: 37143 to 74287, split 3: 74287 to 111430, split 4: 111430 to 148574
     """
     split 1 (index): 37143 items
@@ -171,11 +167,9 @@ def main():
     get_split_final_data_csv(numSplits = numSplit, \
                         journalID = journalID, journal = journal, \
                         outputDataFileName = 'Data analysis/top_journals_articles.csv', \
-                        # outputJournalFileName = 'Data analysis/top_journals_info.csv', \
-                        # journalListFileName = 'Journal selection/topJournals.csv', \
                         dataFolderName = 'topJournalData')
     """
-    # line 98013 in article data
+    # line 98013 - 213810 in article data
     split 1: 22,587 results / 37,143 article IDs 
     split 2: 31,318 results / 37,143 article IDs 
     split 3: 35,788 results / 37,143 article IDs 
