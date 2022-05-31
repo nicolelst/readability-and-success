@@ -43,17 +43,24 @@ def get_scatterplots(outputDataFileName, x_cols, y_col, imageNamePrefix = ''):
         fig.savefig(imageNamePrefix + 'scatter_%s_%s.png' % (x_col, y_col))
 
 
-# def get_scatterplots(outputDataFileName, axes, imageNamePrefix = ''):
-#     # axes = list of (x, y) tuples
-#     df = pd.read_csv(outputDataFileName, sep=",", header=0)
-#     fig = plt.figure()
-#     for x, y in axes:
-#         print(imageNamePrefix, x, y)
-#         plt.clf()
-#         plot = sns.scatterplot(data=df, x=x, y=y)
-#         fig = plot.get_figure()
-#         fig.savefig(imageNamePrefix + 'scatter_%s_%s.png' % (x, y))
+def get_jointplots(outputDataFileName, x_cols, y_col, imageNamePrefix = ''):
+    df = pd.read_csv(outputDataFileName, sep=",", header=0)
+    fig = plt.figure()
+    for x_col in x_cols:
+        print(imageNamePrefix, x_col, y_col)
+        plt.clf()
+        plot = sns.jointplot(data=df, x=x_col, y=y_col)
+        fig = plot.fig
+        fig.savefig(imageNamePrefix + 'joint_%s_%s.png' % (x_col, y_col))
 
+
+def get_correlation_heatmap(outputDataFileName, cols, imageNamePrefix = ''):
+    df = pd.read_csv(outputDataFileName, sep=",", header=0)
+    corr = df[cols].corr()
+    plt.clf()
+    plot = sns.heatmap(corr, annot=True, fmt='.1g') #, center=0)
+    fig = plot.get_figure()
+    fig.savefig(imageNamePrefix + 'correlation.png')
 
 def roundup(num):
     return int(math.ceil(num / 10.0) * 10)
@@ -94,18 +101,28 @@ def main():
     # get_pairplot('Data analysis/top_journals_articles.csv', cols, 'Figures/top_pairplot.png')
     
     cols = ['pubdate_year','citation_count','fre','ndc','ndc_perc_difficult', 'sentence_count', 'word_count']
-    discrete = [True,True,False,False,False,True,True]
-    get_histograms('Data analysis/median_journals_articles.csv', cols, discrete, 'Figures/median_')
-    get_histograms('Data analysis/top_journals_articles.csv', cols, discrete, 'Figures/top_')
+    # discrete = [True,True,False,False,False,True,True]
+    # get_histograms('Data analysis/median_journals_articles.csv', cols, discrete, 'Figures/median_')
+    # get_histograms('Data analysis/top_journals_articles.csv', cols, discrete, 'Figures/top_')
     
-    x_cols = ['fre','ndc','ndc_perc_difficult', 'sentence_count', 'word_count']
-    y_col = 'citation_count'
-    get_scatterplots('Data analysis/median_journals_articles.csv', \
-                    x_cols, y_col, \
-                    'Figures/median_')
-    get_scatterplots('Data analysis/top_journals_articles.csv', \
-                    x_cols, y_col, \
-                    'Figures/top_')
+    # x_cols = ['fre','ndc','ndc_perc_difficult', 'sentence_count', 'word_count']
+    # y_col = 'citation_count'
+    # get_scatterplots('Data analysis/median_journals_articles.csv', \
+    #                 x_cols, y_col, \
+    #                 'Figures/median_')
+    # get_scatterplots('Data analysis/top_journals_articles.csv', \
+    #                 x_cols, y_col, \
+    #                 'Figures/top_')
+
+    # get_jointplots('Data analysis/median_journals_articles.csv', \
+    #                 x_cols, y_col, \
+    #                 'Figures/median_')
+    # get_jointplots('Data analysis/top_journals_articles.csv', \
+    #                 x_cols, y_col, \
+    #                 'Figures/top_')
+
+    get_correlation_heatmap('Data analysis/median_journals_articles.csv', cols, 'Figures/median_')
+    get_correlation_heatmap('Data analysis/top_journals_articles.csv', cols, 'Figures/top_')
 
     # TODO UGLY
     # get_boxplots(outputDataFileName='Data analysis/median_journals_articles.csv', \
