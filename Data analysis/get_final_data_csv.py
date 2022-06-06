@@ -22,7 +22,7 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
     - dataFolderName: name of folder where journal data is stored
     '''
     # initialise file for article data
-    dataHeader = ['journal_ID', 'article_ID', 'pmid', 'pubdate_year', 'citation_count', 'citation_count_per_year', 'fre', 'ndc', 'ndc_perc_difficult', 'sentence_count', 'word_count']
+    dataHeader = ['journal_ID', 'article_ID', 'pmid', 'pubdate_year', 'citation_count', 'fre', 'ndc', 'sentence_count', 'word_count']
     dataFile = open(outputDataFileName, 'w', encoding='UTF8', newline='')
     dataWriter = csv.writer(dataFile)
     dataWriter.writerow(dataHeader) # write header row
@@ -66,7 +66,7 @@ def init_final_data_csv(outputDataFileName, outputJournalFileName, journalListFi
             pubdate_year = data['pubdate_year'][articleID]
 
             # record article data 
-            line = [journal_ID, article_ID, pmid, pubdate_year] + [nan] * 7
+            line = [journal_ID, article_ID, pmid, pubdate_year] + [nan] * 5
             dataWriter.writerow(line)
         searchResults.close()
         # record journal data
@@ -114,7 +114,6 @@ def get_readability(journalID, journalName, outputDataFileName, dataFolderName):
     for index in selectedData.index.values: # get only for this journal
         outputData.loc[index, 'fre'] = readabilityData['flesch'][str(index[1])]
         outputData.loc[index, 'ndc'] = readabilityData['NDC'][str(index[1])]
-        outputData.loc[index, 'ndc_perc_difficult'] = readabilityData['PercDiffWord'][str(index[1])]
         outputData.loc[index, 'sentence_count'] = readabilityData['sentenceCount'][str(index[1])]
         outputData.loc[index, 'word_count'] = readabilityData['wordCount'][str(index[1])]
     outputData.to_csv(outputDataFileName, index=True)
@@ -159,7 +158,6 @@ def get_citations(outputDataFileName, outputJournalFileName):
         pmid = str(int(outputData.loc[index]['pmid']))
         pubdate_year = outputData.loc[index]['pubdate_year']
         outputData.loc[index, 'citation_count'] = citation_counts[pmid] 
-        outputData.loc[index, 'citation_count_per_year'] = citation_counts[pmid] / (date.today().year - pubdate_year)  
     outputData.to_csv(outputDataFileName, index=True)
 
 
