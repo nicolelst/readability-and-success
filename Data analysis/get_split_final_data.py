@@ -58,7 +58,6 @@ def get_split_readability(searchresults_path, indices, outputDataFileName):
     for index in indices: 
         outputData.loc[index, 'fre'] = readabilityData['flesch'][str(index[1])]
         outputData.loc[index, 'ndc'] = readabilityData['NDC'][str(index[1])]
-        outputData.loc[index, 'ndc_perc_difficult'] = readabilityData['PercDiffWord'][str(index[1])]
         outputData.loc[index, 'sentence_count'] = readabilityData['sentenceCount'][str(index[1])]
         outputData.loc[index, 'word_count'] = readabilityData['wordCount'][str(index[1])]
     outputData.to_csv(outputDataFileName, index=True)
@@ -82,7 +81,6 @@ def get_split_citations(indices, outputDataFileName):
         pmid = int(outputData.loc[index]['pmid'])
         pubdate_year = outputData.loc[index]['pubdate_year']
         outputData.loc[index, 'citation_count'] = citation_counts[pmid] 
-        outputData.loc[index, 'citation_count_per_year'] = citation_counts[pmid] / (date.today().year - pubdate_year)  
     outputData.to_csv(outputDataFileName, index=True)
 
 
