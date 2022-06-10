@@ -1,4 +1,11 @@
-ANOVA RESULTS (last updated: 07/06/2022 00:27:55)
+ANOVA RESULTS (last updated: 10/06/2022 16:14:06)
+sum_sq: sum of squares for model terms
+df: degrees of freedom for model terms
+mean_sq: sum_sq / df
+F: F statistic value for significance of adding model terms
+PR(>F): p-value for significance of adding model terms
+eta_sq: measure of effect size, proportion of variance associated with each main effect and interaction effect
+omega_sq: measure of effect size, estimate of how much variance in the response variables are accounted for by the explanatory variables
 
 ========================================
 Data: Data analysis/top_journals_articles.csv
@@ -16,8 +23,9 @@ quintile_rank
 3.0            247860  71.9148  194.7847  0.3912    71.1479   72.6816
 4.0            247764  66.3519  221.8414  0.4457    65.4783   67.2254
 
-F-statistic: 87.02698949543247
-p-value: 4.602401726627182e-74
+                        sum_sq         df       mean_sq          F        PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  1.498905e+07        4.0  3.747263e+06  87.026989  4.602402e-74  0.000281  0.000278
+Residual          5.335205e+10  1239056.0  4.305863e+04        NaN           NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/top_journals_articles.csv
@@ -35,8 +43,9 @@ quintile_rank
 3.0            248835  77.2468  205.3858  0.4117    76.4399   78.0538
 4.0            245241  82.5479  209.6994  0.4234    81.7179   83.3778
 
-F-statistic: 387.7940787124958
-p-value: 0.0
+                        sum_sq         df       mean_sq           F  PR(>F)   eta_sq  omega_sq
+C(quintile_rank)  6.672675e+07        4.0  1.668169e+07  387.794079     0.0  0.00125  0.001247
+Residual          5.330031e+10  1239056.0  4.301687e+04         NaN     NaN      NaN       NaN
 
 ========================================
 Data: Data analysis/top_journals_articles.csv
@@ -54,8 +63,9 @@ quintile_rank
 3              248924  73.1392  180.3682  0.3615    72.4307   73.8478
 4              231914  29.0442   84.8006  0.1761    28.6990   29.3893
 
-F-statistic: 3722.698711643897
-p-value: 0.0
+                        sum_sq         df       mean_sq            F  PR(>F)   eta_sq  omega_sq
+C(quintile_rank)  6.295899e+08        4.0  1.573975e+08  3722.698711     0.0  0.01174  0.011736
+Residual          5.300027e+10  1253540.0  4.228048e+04          NaN     NaN      NaN       NaN
 
 ========================================
 Data: Data analysis/top_journals_articles.csv
@@ -73,8 +83,9 @@ quintile_rank
 3.0            196417  65.4511  178.1777  0.4020    64.6631   66.2391
 4.0            184555  67.4397  119.3719  0.2779    66.8951   67.9844
 
-F-statistic: 258.76521559408855
-p-value: 1.1159066445249025e-222
+                        sum_sq         df       mean_sq           F         PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  4.454361e+07        4.0  1.113590e+07  258.765216  1.115907e-222  0.000835  0.000831
+Residual          5.332250e+10  1239056.0  4.303478e+04         NaN            NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/top_journals_articles.csv
@@ -92,8 +103,9 @@ quintile_rank
 3.0            245791  66.1455  131.6866  0.2656    65.6249   66.6661
 4.0            247145  67.1546  139.2501  0.2801    66.6056   67.7036
 
-F-statistic: 272.66749433154115
-p-value: 1.0122240965377812e-234
+                        sum_sq         df       mean_sq           F         PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  4.693463e+07        4.0  1.173366e+07  272.667494  1.012224e-234  0.000879  0.000876
+Residual          5.332011e+10  1239056.0  4.303285e+04         NaN            NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/median_journals_articles.csv
@@ -111,8 +123,9 @@ quintile_rank
 3.0            14255  5.8606  41.5742  0.3482     5.1781    6.5431
 4.0            14255  4.5779   9.6228  0.0806     4.4199    4.7359
 
-F-statistic: 18.91328188653862
-p-value: 1.4774922053608813e-15
+                        sum_sq       df      mean_sq          F        PR(>F)   eta_sq  omega_sq
+C(quintile_rank)  3.620482e+04      4.0  9051.205686  18.913282  1.477492e-15  0.00106  0.001004
+Residual          3.410674e+07  71269.0   478.563463        NaN           NaN      NaN       NaN
 
 ========================================
 Data: Data analysis/median_journals_articles.csv
@@ -130,8 +143,9 @@ quintile_rank
 3.0            14160  6.6704  42.9883  0.3613     5.9623    7.3785
 4.0            14196  6.6276  13.8739  0.1164     6.3994    6.8559
 
-F-statistic: 23.167292887379787
-p-value: 3.6714915065847666e-19
+                        sum_sq       df       mean_sq          F        PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  4.433750e+04      4.0  11084.376247  23.167293  3.671492e-19  0.001299  0.001243
+Residual          3.409861e+07  71269.0    478.449351        NaN           NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/median_journals_articles.csv
@@ -149,8 +163,9 @@ quintile_rank
 3.0            13569  4.8911   9.8283  0.0844     4.7257    5.0565
 4.0            11637  1.1072   2.6093  0.0242     1.0598    1.1547
 
-F-statistic: 246.6924645320803
-p-value: 9.042556100792367e-211
+                        sum_sq       df        mean_sq           F         PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  4.875238e+05      4.0  121880.943398  246.692465  9.042556e-211  0.014332  0.014273
+Residual          3.352989e+07  67866.0     494.060261         NaN            NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/median_journals_articles.csv
@@ -168,8 +183,9 @@ quintile_rank
 3.0            16409  6.6808  39.4358  0.3079     6.0774    7.2842
 4.0            11864  6.7755  12.1121  0.1112     6.5576    6.9935
 
-F-statistic: 38.26212955907775
-p-value: 4.8987833534139243e-32
+                        sum_sq       df       mean_sq         F        PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  7.316406e+04      4.0  18291.014967  38.26213  4.898783e-32  0.002143  0.002087
+Residual          3.406978e+07  71269.0    478.044876       NaN           NaN       NaN       NaN
 
 ========================================
 Data: Data analysis/median_journals_articles.csv
@@ -187,5 +203,6 @@ quintile_rank
 3.0            14140  6.2896  11.8902  0.1000     6.0936    6.4856
 4.0            14222  7.6367  42.4131  0.3556     6.9396    8.3338
 
-F-statistic: 60.01138478112213
-p-value: 1.1060603474368204e-50
+                        sum_sq       df       mean_sq          F        PR(>F)    eta_sq  omega_sq
+C(quintile_rank)  1.146129e+05      4.0  28653.233344  60.011385  1.106060e-50  0.003357  0.003301
+Residual          3.402833e+07  71269.0    477.463292        NaN           NaN       NaN       NaN
