@@ -1,0 +1,179 @@
+ANOVA RESULTS (last updated: 22/06/2022 16:31:31)
+
+sum_sq: sum of squares for model terms
+df: degrees of freedom for model terms
+mean_sq: sum_sq / df
+F: F statistic value for significance of adding model terms
+PR(>F): p-value for significance of adding model terms
+eta_sq: measure of effect size, proportion of variance associated with each main effect and interaction effect
+omega_sq: measure of effect size, estimate of how much variance in the response variables are accounted for by the explanatory variables
+
+========================================
+Data: Data analysis/top_journals_articles.csv
+Factor: fre
+Response variable: citation_count
+
+         Variable          N     Mean        SD      SE  95% Conf.  Interval
+0  citation_count  1253545.0  72.6451  206.8395  0.1847     72.283   73.0071
+
+                 N     Mean       SD      SE  95% Conf.  Interval
+group_rank                                                       
+0.0         619551  75.4844  199.550  0.2535    74.9875   75.9813
+1.0         619510  70.0189  215.189  0.2734    69.4831   70.5548
+
+                     sum_sq         df       mean_sq           F        PR(>F)    eta_sq  omega_sq
+C(group_rank)  9.253278e+06        1.0  9.253278e+06  214.876934  1.196731e-48  0.000173  0.000173
+Residual       5.335779e+10  1239059.0  4.306315e+04         NaN           NaN       NaN       NaN
+
+========================================
+Data: Data analysis/top_journals_articles.csv
+Factor: ndc
+Response variable: citation_count
+
+         Variable          N     Mean        SD      SE  95% Conf.  Interval
+0  citation_count  1253545.0  72.6451  206.8395  0.1847     72.283   73.0071
+
+                 N     Mean        SD      SE  95% Conf.  Interval
+group_rank                                                        
+0.0         623150  66.8462  212.1661  0.2688    66.3194   67.3730
+1.0         615911  78.7267  202.5659  0.2581    78.2209   79.2326
+
+                     sum_sq         df       mean_sq            F         PR(>F)    eta_sq  omega_sq
+C(group_rank)  4.372113e+07        1.0  4.372113e+07  1015.935506  7.604276e-223  0.000819  0.000818
+Residual       5.332332e+10  1239059.0  4.303534e+04          NaN            NaN       NaN       NaN
+
+========================================
+Data: Data analysis/top_journals_articles.csv
+Factor: pubdate_year
+Response variable: citation_count
+
+         Variable          N     Mean        SD      SE  95% Conf.  Interval
+0  citation_count  1253545.0  72.6451  206.8395  0.1847     72.283   73.0071
+
+                 N     Mean        SD      SE  95% Conf.  Interval
+group_rank                                                        
+0           649089  85.3062  240.5856  0.2986    84.7209   85.8914
+1           604456  59.0491  161.9010  0.2082    58.6409   59.4572
+
+                     sum_sq         df       mean_sq           F  PR(>F)    eta_sq  omega_sq
+C(group_rank)  2.157857e+08        1.0  2.157857e+08  5064.14635     0.0  0.004024  0.004023
+Residual       5.341408e+10  1253543.0  4.261049e+04         NaN     NaN       NaN       NaN
+
+========================================
+Data: Data analysis/top_journals_articles.csv
+Factor: sentence_count
+Response variable: citation_count
+
+         Variable          N     Mean        SD      SE  95% Conf.  Interval
+0  citation_count  1253545.0  72.6451  206.8395  0.1847     72.283   73.0071
+
+                 N     Mean        SD      SE  95% Conf.  Interval
+group_rank                                                        
+0.0         727003  77.1799  239.7688  0.2812    76.6287    77.731
+1.0         512058  66.4649  150.1079  0.2098    66.0537    66.876
+
+                     sum_sq         df       mean_sq           F         PR(>F)    eta_sq  omega_sq
+C(group_rank)  3.449432e+07        1.0  3.449432e+07  801.396034  3.054436e-176  0.000646  0.000646
+Residual       5.333255e+10  1239059.0  4.304278e+04         NaN            NaN       NaN       NaN
+
+========================================
+Data: Data analysis/top_journals_articles.csv
+Factor: word_count
+Response variable: citation_count
+
+         Variable          N     Mean        SD      SE  95% Conf.  Interval
+0  citation_count  1253545.0  72.6451  206.8395  0.1847     72.283   73.0071
+
+                 N     Mean        SD      SE  95% Conf.  Interval
+group_rank                                                        
+0.0         620955  78.4232  257.9805  0.3274    77.7816   79.0649
+1.0         618106  67.0541  139.3352  0.1772    66.7068   67.4015
+
+                     sum_sq         df       mean_sq           F         PR(>F)   eta_sq  omega_sq
+C(group_rank)  4.003908e+07        1.0  4.003908e+07  930.312595  3.008226e-204  0.00075  0.000749
+Residual       5.332700e+10  1239059.0  4.303831e+04         NaN            NaN      NaN       NaN
+
+========================================
+Data: Data analysis/median_journals_articles.csv
+Factor: fre
+Response variable: citation_count
+
+         Variable        N    Mean       SD      SE  95% Conf.  Interval
+0  citation_count  71422.0  5.8383  21.8676  0.0818     5.6779    5.9987
+
+                N    Mean       SD      SE  95% Conf.  Interval
+group_rank                                                     
+0.0         35637  6.3816  14.3705  0.0761     6.2324    6.5308
+1.0         35637  5.3004  27.4045  0.1452     5.0159    5.5850
+
+                     sum_sq       df       mean_sq          F        PR(>F)   eta_sq  omega_sq
+C(group_rank)  2.082893e+04      1.0  20828.926397  43.506073  4.255885e-11  0.00061  0.000596
+Residual       3.412212e+07  71272.0    478.759055        NaN           NaN      NaN       NaN
+
+========================================
+Data: Data analysis/median_journals_articles.csv
+Factor: ndc
+Response variable: citation_count
+
+         Variable        N    Mean       SD      SE  95% Conf.  Interval
+0  citation_count  71422.0  5.8383  21.8676  0.0818     5.6779    5.9987
+
+                N    Mean       SD      SE  95% Conf.  Interval
+group_rank                                                     
+0.0         35785  5.1605  10.8117  0.0572     5.0485    5.2725
+1.0         35489  6.5272  29.0395  0.1541     6.2251    6.8293
+
+                     sum_sq       df       mean_sq          F        PR(>F)    eta_sq  omega_sq
+C(group_rank)  3.328299e+04      1.0  33282.991469  69.544677  7.601722e-17  0.000975  0.000961
+Residual       3.410966e+07  71272.0    478.584315        NaN           NaN       NaN       NaN
+
+========================================
+Data: Data analysis/median_journals_articles.csv
+Factor: pubdate_year
+Response variable: citation_count
+
+         Variable        N    Mean       SD      SE  95% Conf.  Interval
+0  citation_count  71422.0  5.8383  21.8676  0.0818     5.6779    5.9987
+
+                N    Mean       SD      SE  95% Conf.  Interval
+group_rank                                                     
+0.0         36459  7.7069  29.0516  0.1521     7.4087    8.0051
+1.0         31412  4.0505   9.8076  0.0553     3.9421    4.1590
+
+                     sum_sq       df        mean_sq           F         PR(>F)    eta_sq  omega_sq
+C(group_rank)  2.255862e+05      1.0  225586.234872  453.077316  3.286974e-100  0.006631  0.006617
+Residual       3.379183e+07  67869.0     497.897880         NaN            NaN       NaN       NaN
+
+========================================
+Data: Data analysis/median_journals_articles.csv
+Factor: sentence_count
+Response variable: citation_count
+
+         Variable        N    Mean       SD      SE  95% Conf.  Interval
+0  citation_count  71422.0  5.8383  21.8676  0.0818     5.6779    5.9987
+
+                N    Mean       SD      SE  95% Conf.  Interval
+group_rank                                                     
+0.0         36255  5.1145  12.8964  0.0677     4.9817    5.2472
+1.0         35019  6.5932  28.3145  0.1513     6.2966    6.8898
+
+                     sum_sq       df       mean_sq          F        PR(>F)    eta_sq  omega_sq
+C(group_rank)  3.895072e+04      1.0  38950.722879  81.400904  1.887104e-19  0.001141  0.001127
+Residual       3.410399e+07  71272.0    478.504793        NaN           NaN       NaN       NaN
+
+========================================
+Data: Data analysis/median_journals_articles.csv
+Factor: word_count
+Response variable: citation_count
+
+         Variable        N    Mean       SD      SE  95% Conf.  Interval
+0  citation_count  71422.0  5.8383  21.8676  0.0818     5.6779    5.9987
+
+                N    Mean       SD      SE  95% Conf.  Interval
+group_rank                                                     
+0.0         35870  4.8713  12.1002  0.0639     4.7461    4.9965
+1.0         35404  6.8235  28.5333  0.1516     6.5262    7.1207
+
+                     sum_sq       df       mean_sq           F        PR(>F)    eta_sq  omega_sq
+C(group_rank)  6.790166e+04      1.0  67901.656616  142.024382  1.031972e-32  0.001989  0.001975
+Residual       3.407504e+07  71272.0    478.098589         NaN           NaN       NaN       NaN

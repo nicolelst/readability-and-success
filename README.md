@@ -22,3 +22,10 @@ Python interpreter used: 3.8.5
     - Edit `numSplit` to reflect the number of subsets to divide the searchresults into in line 117
 
 5. Run `Data analysis/plot_data_from_csv.py` 
+
+6. Run `Data analysis/anova_by_quantiles.py` 
+    - Edit `tests` (line 49) if needed
+
+7. Run `Data analysis/anova_by_threshold.py` 
+    - Edit `outputFile` (line 48) if needed
+    - Edit `threshold` (line 69) if needed
