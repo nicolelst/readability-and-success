@@ -16,6 +16,7 @@ Python interpreter used: 3.8.5
     - DTD for pubmed xml data found [here](https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd)
 
 3. Run `Data analysis/get_final_data_csv.py` 
+    - If needed, run `Data analysis/get_final_counts.py` 
 
 4. If the searchresults for a journal is too large to be processed (eg top journal 3), run `Data analysis/get_split_final_data_csv.py` 
     - Edit `journalID`, `journal` to reflect the affected journal in lines 115-116
@@ -26,6 +27,6 @@ Python interpreter used: 3.8.5
 6. Run `Data analysis/anova_by_quantiles.py` 
     - Edit `tests` (line 49) if needed
 
-7. Run `Data analysis/anova_by_threshold.py` 
-    - Edit `outputFile` (line 48) if needed
-    - Edit `threshold` (line 69) if needed
+~~7. Run `Data analysis/anova_by_threshold.py`~~
+    - Edit list of `threshold` (line 48) if needed
+    - Edit `outputFile` (line 49) if needed

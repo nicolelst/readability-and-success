@@ -45,14 +45,9 @@ def anova_by_threshold(dataFile, factor, response, threshold, outputFile):
         print(anova_table(aov_table), file=f)
 
 def main():
-    # tests is a dictionary with key = numGroups (int), and value = outputFile (str)
-    tests = {1: 'Data analysis/ANOVA_results_citations_above_1.txt'
-            }
-    # tests = {0: 'Data analysis/ANOVA_results_citations_above_0.txt', 
-    #         1: 'Data analysis/ANOVA_results_citations_above_1.txt'
-    #         }
-
-    for threshold, outputFile in tests.items():
+    for threshold in [0, 1, 5, 10, 20, 50, 100, 200, 500, 1000]:
+        outputFile = 'Data analysis/ANOVA_results_citations_above_%d.txt' % threshold
+        
         dt_string = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         with open(outputFile, 'w') as f:
             print("ANOVA RESULTS (last updated: %s)\n" % dt_string, file=f)
