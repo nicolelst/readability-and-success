@@ -350,9 +350,9 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                         print('Pubmed Download Error (articles missing, ' + str(len(idData)) + ' vs ' + str(len(pubmedid)) + '): rerunning. Failed ' + str(erind2) + ' times.')
             if i==0 and len(pubmedid)<maxPubmedSearchReturn:
                 numArticles = len(pubmedid)
-                # print('Downloaded %d articles' % numArticles)
-            # else:
-            #     print('Downloaded batch ' + str(i) + ' containing ' + str(len(pubmedid)) + ' articles')
+                print('Downloaded %d articles' % numArticles)
+            else:
+                print('Downloaded batch ' + str(i) + ' containing ' + str(len(pubmedid)) + ' articles')
 
             if output=='txt':  #save everything in to text
             #Save XML data as text file for use another day
@@ -370,7 +370,7 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
                         print('Saved as pandas dataframe with id:' + dfId[n] + ' (format: json)')
                     else:
                         dataOut.to_json(filename_pubMedData[n] + '_batch' + str(i))
-                        # print('Saved file  batch ' + str(i) + ' as pandas dataframe with id:' + dfId[n] + ' (format: json)')
+                        print('Saved file  batch ' + str(i) + ' as pandas dataframe with id:' + dfId[n] + ' (format: json)')
             if len(pubmedid)<maxPubmedSearchReturn: # Exit forloop
                 if output=='txt': #cleanup txt file, if printing to txtfile
                     print('Saved as txt file')
@@ -394,16 +394,16 @@ def get_pubmeddata(searchString=None, dataOfInterest=None, dfId=None, email_addr
     #Merge the batch files and cleanup if pubmed searches > 10000 and pckle
     if i>1 and output=='df':
         for pfn in range(0,len(filename_pubMedData)):
-            # print('Combining batch files')
+            print('Combining batch files')
             p=pd.read_json(filename_pubMedData[pfn] + '_batch' + str(0))
             for n in range(1,i):
                 p2=pd.read_json(filename_pubMedData[pfn] + '_batch' + str(n))
                 p=pd.concat([p,p2])
-            # print('Saving concatenated file (format: json)')
+            print('Saving concatenated file (format: json)')
             p.reset_index(inplace=True)
             numArticles = p.shape[0]
             p.to_json(filename_pubMedData[pfn])
-            # print('Cleaning up batch files')
+            print('Cleaning up batch files')
             for n in range(0,i):
                 cmd = filename_pubMedData[pfn] + '_batch' + str(n) #This may only work on unix
                 os.remove(cmd)
