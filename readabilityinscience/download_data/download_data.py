@@ -12,9 +12,9 @@ repo_directory and email (see first cell block).
 #%%
 
 # Where is the main directory of the repo
-repo_directory = 'C:\\Users\\User\\Desktop\\readability-and-success' 
+repo_directory = '' ## TODO: LOCATION OF REPOSITORY HERE ##
 # Pubmed requires you to identify with an email addreesss
-email = 'nicolelim2608@gmail.com'
+email = '' ## TODO: YOUR EMAIL HERE ##
 
 #%%
 import os
