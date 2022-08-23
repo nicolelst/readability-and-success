@@ -26,7 +26,3 @@ Python interpreter used: 3.8.5
 
 6. Run `Data analysis/anova_by_quantiles.py` 
     - Edit `tests` (line 49) if needed
-
-~~7. Run `Data analysis/anova_by_threshold.py`~~
-    - Edit list of `threshold` (line 48) if needed
-    - Edit `outputFile` (line 49) if needed
